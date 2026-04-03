@@ -576,7 +576,7 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
       <h2 id="cht">انضم للبرنامج<br><span style="color:var(--accent)">اليوم</span></h2>
       <p id="chp">أرسل طلب انضمام وسيتواصل معك فريقنا خلال ساعات.</p>
       <ul class="cpts">
-        <li class="cpt"><span>📧</span><span>support@bridgecards.org</span></li>
+        <li class="cpt"><span>📧</span><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2f5c5a5f5f405d5b6f4d5d464b484a4c4e5d4b5c01405d48">[email&#160;protected]</a></span></li>
         <li class="cpt"><span>💬</span><span>Telegram: @BridgeCards</span></li>
         <li class="cpt"><span>🕐</span><span id="cp1">رد خلال 24 ساعة</span></li>
         <li class="cpt"><span>🌍</span><span id="cp2">نخدم أكثر من 80 دولة</span></li>
@@ -609,7 +609,7 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
     <li><a id="fl-c">رصيد الألعاب</a></li><li><a id="fl-d">شركاء الجملة</a></li>
     <li><a id="fl-e">سياسة الخصوصية</a></li><li><a id="fl-f">الشروط</a></li>
   </ul>
-  <div style="font-size:11px;color:var(--sub)" id="f-copy">© 2026 BridgeCards · <a href='mailto:support@bridgecards.org' style='color:var(--accent3);text-decoration:none;'>support@bridgecards.org</a> · <a href='https://t.me/bridgecards' style='color:var(--accent3);text-decoration:none;'>Telegram</a></div>
+  <div style="font-size:11px;color:var(--sub)" id="f-copy">© 2026 BridgeCards · <a href="/cdn-cgi/l/email-protection#691a1c1919061b1d290b1b000d0e0c0a081b0d1a47061b0e" style="color:var(--accent3);text-decoration:none;"><span class="__cf_email__" data-cfemail="6b181e1b1b04191f2b0919020f0c0e080a190f184504190c">[email&#160;protected]</span></a> · <a href="https://t.me/bridgecards" style="color:var(--accent3);text-decoration:none;">Telegram</a></div>
 </footer>
 
 <!-- CART DRAWER -->
@@ -717,7 +717,7 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
 
 <div class="toast" id="toast"></div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ══════════════════════════════════════════
    SAFE DOM HELPER
 ══════════════════════════════════════════ */
@@ -920,7 +920,7 @@ function renderProducts(){
   if(!list.length){grid.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--sub);">لا توجد منتجات في هذه الفئة</div>';return;}
   grid.innerHTML=list.map(p=>{
     const di=selD[p.id]||0,d=p.d[di];
-    const disc=Math.round((1-d.p/d.o)*100);
+    const disc=Math.max(1,Math.round((1-d.p/d.o)*100));
     const dens=p.d.map((dd,i)=>`<button class="den${i===di?' on':''}" onclick="selDenom('${p.id}',${i},event)">${dd.l}</button>`).join('');
     const logoUrl=getLogo(p.id);
     const chipTxt=lang==='ar'?(CAT_AR[p.cat]||p.cat):(CAT_EN[p.cat]||p.cat);
@@ -1299,7 +1299,7 @@ const T={
     'chp':'أرسل طلب انضمام وسيتواصل معك فريقنا.','cp1':'رد خلال 24 ساعة','cp2':'80+ دولة',
     'fl1':'الاسم','fl2':'البريد','fl3':'الشركة','fl4':'الدولة','fl5':'حجم الشراء','fl6':'رسالتك',
     'fsub':'إرسال طلب الانضمام ←','btn-login':'تسجيل الدخول','btn-reg':'إنشاء حساب',
-    'f-sub':'جسر الكروت','f-copy':'© 2026 BridgeCards · <a href='mailto:support@bridgecards.org' style='color:var(--accent3);text-decoration:none;'>support@bridgecards.org</a> · <a href='https://t.me/bridgecards' style='color:var(--accent3);text-decoration:none;'>Telegram</a>',
+    'f-sub':'جسر الكروت','f-copy':'© 2026 BridgeCards · <a href="mailto:support@bridgecards.org" style="color:var(--accent3);text-decoration:none;">support@bridgecards.org</a> · <a href="https://t.me/bridgecards" style="color:var(--accent3);text-decoration:none;">Telegram</a>',
     'fl-a':'بطاقات الهدايا','fl-b':'مسبقة الدفع','fl-c':'ألعاب','fl-d':'جملة','fl-e':'خصوصية','fl-f':'شروط',
     'cart-title':'🛒 سلة المشتريات','ct1':'العناصر','ct2':'الخصم','ct3':'الإجمالي',
     'ck-title':'إتمام الشراء','cks1l':'ملخص','cks2l':'الدفع','cks3l':'التفاصيل','cks4l':'تأكيد',
@@ -1354,7 +1354,7 @@ const T={
     'chp':'Send a join request and our team will contact you.','cp1':'Response within 24h','cp2':'80+ countries',
     'fl1':'Full Name','fl2':'Email','fl3':'Company','fl4':'Country','fl5':'Monthly Volume','fl6':'Message',
     'fsub':'Send Enrollment Request →','btn-login':'Sign In','btn-reg':'Create Account',
-    'f-sub':'Bridge Cards','f-copy':'© 2026 BridgeCards · <a href='mailto:support@bridgecards.org' style='color:var(--accent3);text-decoration:none;'>support@bridgecards.org</a> · <a href='https://t.me/bridgecards' style='color:var(--accent3);text-decoration:none;'>Telegram</a>',
+    'f-sub':'Bridge Cards','f-copy':'© 2026 BridgeCards · <a href="mailto:support@bridgecards.org" style="color:var(--accent3);text-decoration:none;">support@bridgecards.org</a> · <a href="https://t.me/bridgecards" style="color:var(--accent3);text-decoration:none;">Telegram</a>',
     'fl-a':'Gift Cards','fl-b':'Prepaid Cards','fl-c':'Gaming','fl-d':'Wholesale','fl-e':'Privacy','fl-f':'Terms',
     'cart-title':'🛒 Shopping Cart','ct1':'Items','ct2':'Discount','ct3':'Total',
     'ck-title':'Checkout','cks1l':'Summary','cks2l':'Payment','cks3l':'Details','cks4l':'Confirm',
@@ -1438,14 +1438,4 @@ function toast(msg){const t=g('toast');t.textContent=msg;t.classList.add('show')
 document.getElementById('ckModal').addEventListener('click',function(e){if(e.target===this)closeM('ckModal');});
 document.getElementById('authModal').addEventListener('click',function(e){if(e.target===this)closeM('authModal');});
 document.getElementById('currSel').addEventListener('change',function(){cur=this.value;renderProducts();updateCart();buildCkSummary();});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeM('ckModal');closeM('authModal');closeCart();document.querySelectorAll('.nav-cat.open').forEach(el=>el.classList.remove('open'));}});
-
-/* INIT */
-renderProducts();
-updateNavUser();
-
-// Auto price sync من Reloadly للمنتجات المربوطة
-
-</script>
-</body>
-</html>
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeM('ckModal');closeM('authModal');closeCart();document.querySelectorAll('.nav-cat.open').for
