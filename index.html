@@ -1421,7 +1421,7 @@ function toggleLang(){
 })();
 
 /* ══════════════════════════════════════════
-   HELPERS & INITIALIZATION (تم الإصلاح هنا)
+   HELPERS
 ══════════════════════════════════════════ */
 function openM(id){const el=g(id);if(el)el.classList.add('open');}
 function closeM(id){const el=g(id);if(el)el.classList.remove('open');}
@@ -1429,6 +1429,7 @@ function toast(msg){const t=g('toast');t.textContent=msg;t.classList.add('show')
 
 document.getElementById('ckModal').addEventListener('click',function(e){if(e.target===this)closeM('ckModal');});
 document.getElementById('authModal').addEventListener('click',function(e){if(e.target===this)closeM('authModal');});
+document.getElementById('termsModal').addEventListener('click',function(e){if(e.target===this)closeM('termsModal');});
 document.getElementById('currSel').addEventListener('change',function(){cur=this.value;renderProducts();updateCart();buildCkSummary();});
 
 // إضافة إغلاق النوافذ عند الضغط على زر ESC
@@ -1436,12 +1437,12 @@ document.addEventListener('keydown', e => {
   if(e.key === 'Escape'){
     closeM('ckModal');
     closeM('authModal');
+    closeM('termsModal');
     closeCart();
     document.querySelectorAll('.nav-cat.open').forEach(el => el.classList.remove('open'));
   }
 });
 
-// بدء تشغيل وتفعيل جميع الكروت والمكونات!
 /* ══════════════════════════════════════════
    DYNAMIC PRICING (التسعير الديناميكي المباشر)
 ══════════════════════════════════════════ */
@@ -1449,48 +1450,36 @@ const PROFIT_MARGIN = 1.10; // هامش الربح الخاص بك (10% زياد
 
 async function syncLivePrices() {
   try {
-    // 1. الاتصال بالخادم الخاص بك لجلب الأسعار الحية من Reloadly
     const res = await fetch(RAILWAY_URL + '/api/products');
     const data = await res.json();
     const liveProducts = data.content || data; 
 
     if (!liveProducts || !liveProducts.length) return;
 
-    // 2. تحويل البيانات إلى خريطة (Map) لتسهيل البحث السريع
     const apiMap = {};
     liveProducts.forEach(prod => {
       apiMap[prod.productId] = prod;
     });
 
-    // 3. تحديث أسعار المنتجات في موقعك (مصفوفة P)
     P.forEach(localProduct => {
       if (localProduct.reloadlyId && apiMap[localProduct.reloadlyId]) {
         const liveData = apiMap[localProduct.reloadlyId];
         
-        // التأكد من أن المنتج فعال في Reloadly
         if (liveData.status === 'ACTIVE') {
           const discount = liveData.discountPercentage || 0;
 
-          // تحديث سعر كل فئة داخل الكرت
           localProduct.d.forEach(denom => {
-            const faceValue = denom.o; // السعر الأصلي أو القيمة الاسمية
-            
-            // حساب التكلفة عليك بعد خصم Reloadly
+            const faceValue = denom.o; 
             const myCost = faceValue - (faceValue * (discount / 100));
-            
-            // حساب سعر البيع للعميل (التكلفة + 10% ربح)
             let finalSellingPrice = myCost * PROFIT_MARGIN;
-            
-            // تحديث السعر المعروض (p)
             denom.p = parseFloat(finalSellingPrice.toFixed(2));
           });
         }
       }
     });
 
-    // 4. إعادة رسم الكروت بالأسعار الجديدة والمحدثة
     renderProducts();
-    updateCart(); // تحديث السلة في حال كان العميل قد أضاف منتجاً
+    updateCart(); 
     console.log("✅ تمت مزامنة الأسعار الديناميكية بنجاح!");
 
   } catch (error) {
@@ -1499,13 +1488,11 @@ async function syncLivePrices() {
 }
 
 // ===== بدء تشغيل النظام =====
-// نعرض الموقع أولاً بالأسعار المؤقتة لكي لا يرى العميل شاشة بيضاء
 renderProducts();
 updateCart();
 buildPmGrid();
 updateNavUser();
 
-// ثم نقوم بتشغيل مزامنة الأسعار في الخلفية
 syncLivePrices();
 
 </script>
