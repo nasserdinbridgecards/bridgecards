@@ -1511,11 +1511,25 @@ async function syncLivePrices() {
         
         if (liveData.status === 'ACTIVE') {
           const discount = liveData.discountPercentage || 0;
-
-          localProduct.d.forEach(denom => {
+localProduct.d.forEach(denom => {
             const faceValue = denom.o; 
+            // 1. التكلفة الحقيقية من Reloadly
             const myCost = faceValue - (faceValue * (discount / 100));
-            let finalSellingPrice = myCost * PROFIT_MARGIN;
+            
+            // 2. السعر مع ربحك الصافي (10%)
+            const priceWithProfit = myCost + (myCost * 0.10);
+            
+            // 3. إضافة رسوم Stripe التقريبية (2.9% + 0.30$) لتجنب أي خسارة
+            const stripeFee = (priceWithProfit * 0.029) + 0.30;
+            
+            // 4. السعر النهائي للعميل
+            let finalSellingPrice = priceWithProfit + stripeFee;
+            
+            // حماية إضافية: التأكد أن السعر النهائي لا يقل أبداً عن التكلفة + 0.5$
+            if(finalSellingPrice < myCost + 0.5) {
+                finalSellingPrice = myCost + 0.5;
+            }
+
             denom.p = parseFloat(finalSellingPrice.toFixed(2));
           });
         }
