@@ -1442,10 +1442,71 @@ document.addEventListener('keydown', e => {
 });
 
 // بدء تشغيل وتفعيل جميع الكروت والمكونات!
+/* ══════════════════════════════════════════
+   DYNAMIC PRICING (التسعير الديناميكي المباشر)
+══════════════════════════════════════════ */
+const PROFIT_MARGIN = 1.10; // هامش الربح الخاص بك (10% زيادة على التكلفة)
+
+async function syncLivePrices() {
+  try {
+    // 1. الاتصال بالخادم الخاص بك لجلب الأسعار الحية من Reloadly
+    const res = await fetch(RAILWAY_URL + '/api/products');
+    const data = await res.json();
+    const liveProducts = data.content || data; 
+
+    if (!liveProducts || !liveProducts.length) return;
+
+    // 2. تحويل البيانات إلى خريطة (Map) لتسهيل البحث السريع
+    const apiMap = {};
+    liveProducts.forEach(prod => {
+      apiMap[prod.productId] = prod;
+    });
+
+    // 3. تحديث أسعار المنتجات في موقعك (مصفوفة P)
+    P.forEach(localProduct => {
+      if (localProduct.reloadlyId && apiMap[localProduct.reloadlyId]) {
+        const liveData = apiMap[localProduct.reloadlyId];
+        
+        // التأكد من أن المنتج فعال في Reloadly
+        if (liveData.status === 'ACTIVE') {
+          const discount = liveData.discountPercentage || 0;
+
+          // تحديث سعر كل فئة داخل الكرت
+          localProduct.d.forEach(denom => {
+            const faceValue = denom.o; // السعر الأصلي أو القيمة الاسمية
+            
+            // حساب التكلفة عليك بعد خصم Reloadly
+            const myCost = faceValue - (faceValue * (discount / 100));
+            
+            // حساب سعر البيع للعميل (التكلفة + 10% ربح)
+            let finalSellingPrice = myCost * PROFIT_MARGIN;
+            
+            // تحديث السعر المعروض (p)
+            denom.p = parseFloat(finalSellingPrice.toFixed(2));
+          });
+        }
+      }
+    });
+
+    // 4. إعادة رسم الكروت بالأسعار الجديدة والمحدثة
+    renderProducts();
+    updateCart(); // تحديث السلة في حال كان العميل قد أضاف منتجاً
+    console.log("✅ تمت مزامنة الأسعار الديناميكية بنجاح!");
+
+  } catch (error) {
+    console.error("⚠️ لم نتمكن من جلب الأسعار الحية، سنستخدم الأسعار الافتراضية:", error.message);
+  }
+}
+
+// ===== بدء تشغيل النظام =====
+// نعرض الموقع أولاً بالأسعار المؤقتة لكي لا يرى العميل شاشة بيضاء
 renderProducts();
 updateCart();
 buildPmGrid();
 updateNavUser();
+
+// ثم نقوم بتشغيل مزامنة الأسعار في الخلفية
+syncLivePrices();
 
 </script>
 </body>
