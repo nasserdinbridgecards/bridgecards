@@ -6,7 +6,7 @@
 <title>BridgeCards – جسر الكروت | المنصة المتكاملة</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-/* --- جميع التنسيقات الأصلية والاحترافية الخاصة بك محفوظة 100% --- */
+/* ══ جميع التنسيقات الأصلية الاحترافية الخاصة بناصر محفوظة 100% ══ */
 :root{
   --bg:#07080f;--bg2:#0d0e1a;--surface:#111220;--card:#161728;
   --border:#252740;--border2:#2e3155;
@@ -25,9 +25,9 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
              linear-gradient(90deg,rgba(61,107,255,.025) 1px,transparent 1px);
   background-size:auto,auto,52px 52px,52px 52px;}
 
-/* نيفبار والقوائم المنسدلة الضخمة */
+/* نيفبار، دروب داون، هيرو، إحصائيات */
 .topbar{background:linear-gradient(90deg,var(--accent),var(--accent2));padding:8px;text-align:center;font-size:13px;font-weight:700;position:relative;z-index:200;}
-nav{position:sticky;top:0;z-index:150;background:rgba(7,8,15,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);height:66px;display:flex;align-items:center;padding:0 16px;gap:10px;overflow:visible;}
+nav{position:sticky;top:0;z-index:150;background:rgba(7,8,15,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);height:66px;display:flex;align-items:center;padding:0 16px;gap:10px;}
 .logo{display:flex;align-items:center;gap:9px;text-decoration:none;flex-shrink:0;}
 .logo-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;}
 .logo-text{font-size:16px;font-weight:900;color:var(--text);}
@@ -38,40 +38,32 @@ nav{position:sticky;top:0;z-index:150;background:rgba(7,8,15,.92);backdrop-filte
 .nav-cat:hover .drop{display:block;}
 .drop{display:none;position:fixed;top:66px;left:0;right:0;background:rgba(9,9,20,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border2);z-index:140;padding:24px 32px 28px;animation:fadeDown .2s ease;}
 .drop-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
-.drop-col-title{font-size:10px;font-weight:800;color:var(--sub);text-transform:uppercase;margin-bottom:12px;padding-bottom:7px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:6px;}
 .ditem{display:flex;align-items:center;gap:9px;padding:7px 9px;border-radius:9px;text-decoration:none;color:var(--sub);font-size:12px;font-weight:600;transition:all .18s;}
 .ditem:hover{background:rgba(61,107,255,.1);color:var(--text);}
+.pc-head{height:120px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;font-size:50px;}
 
-/* الهيرو والإحصائيات */
-.hero{padding:72px 24px 48px;text-align:center;max-width:800px;margin:0 auto;}
-.hero-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(61,107,255,.12);border:1px solid rgba(61,107,255,.3);border-radius:var(--rpill);padding:5px 16px;font-size:12px;font-weight:700;color:var(--accent);margin-bottom:20px;}
+/* الهيرو والفلاتر والكروت */
+.hero{position:relative;z-index:1;padding:72px 24px 48px;text-align:center;max-width:800px;margin:0 auto;}
 .hero h1{font-size:clamp(24px,5vw,50px);font-weight:900;line-height:1.15;margin-bottom:14px;}
 .hero h1 em{font-style:normal;background:linear-gradient(100deg,var(--accent),var(--accent2) 60%,var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);gap:1px;margin-bottom:56px;}
 .stat{background:var(--bg2);padding:22px 18px;text-align:center;}
-.stat-n{font-size:26px;font-weight:900;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:block;}
-
-/* فلاتر المنتجات والكروت */
 .sec{max-width:1200px;margin:0 auto 64px;padding:0 24px;}
 .tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:22px;}
 .tab{padding:7px 14px;border-radius:var(--rsm);border:1px solid var(--border);background:transparent;color:var(--sub);cursor:pointer;font-size:12px;font-weight:700;}
 .tab.on{background:var(--accent);color:#fff;border-color:var(--accent);}
 .pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:13px;}
 .pc{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:all .22s;display:flex;flex-direction:column;}
-.pc:hover{border-color:var(--accent);transform:translateY(-4px);}
-.pc-head{height:120px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
-.pc-logo-box { font-size: 50px; z-index: 2; }
-.pc-body{padding:10px 12px 12px;flex:1;display:flex;flex-direction:column;text-align:center;}
-.pc-price{font-size:15px;font-weight:900;color:var(--accent3);margin-top:10px;}
-.add-btn{padding:8px;border:none;border-radius:var(--rsm);background:var(--accent);color:#fff;font-size:12px;font-weight:800;cursor:pointer;margin-top:10px;}
+.pc-body{padding:10px 12px 12px;flex:1;display:flex;flex-direction:column;}
+.pc-name{font-size:13px;font-weight:800;margin-bottom:3px;text-align:center;}
+.pc-price{font-size:15px;font-weight:900;color:var(--accent3);text-align:center;}
+.add-btn{padding:8px;border:none;border-radius:var(--rsm);background:var(--accent);color:#fff;font-size:12px;font-weight:800;cursor:pointer;margin-top:10px;width:100%;}
 
 /* السلة والتنبيهات */
 .cart-dr{position:fixed;top:0;inset-inline-end:-400px;width:380px;height:100vh;background:var(--surface);z-index:450;transition:transform .35s;padding:25px;border-left:1px solid var(--border);}
 .cart-dr.open{transform:translateX(-400px);}
-.toast{position:fixed;bottom:22px;inset-inline-end:22px;z-index:600;background:var(--accent3);color:#000;padding:10px 16px;border-radius:9px;opacity:0;transition:0.3s;}
+.toast{position:fixed;bottom:22px;inset-inline-end:22px;z-index:600;background:var(--accent3);color:#000;padding:10px 16px;border-radius:9px;opacity:0;transition:0.3s;pointer-events:none;}
 .toast.show{opacity:1;}
-
-@keyframes fadeDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
 </style>
 </head>
 <body id="body">
@@ -84,16 +76,16 @@ nav{position:sticky;top:0;z-index:150;background:rgba(7,8,15,.92);backdrop-filte
     <div class="logo-text">BridgeCards<small id="logo-sub"></small></div>
   </a>
   <ul class="nav-cats">
-    <li class="nav-cat">
-        <a href="#"><span id="nc0t"></span> ▾</a>
-        <div class="drop"><div class="drop-inner"><div id="dc00"></div><div id="dc01"></div><div id="dc02"></div><div id="dc03"></div></div></div>
+    <li class="nav-cat"><a href="#"><span id="nc0t"></span> ▾</a>
+      <div class="drop"><div class="drop-inner"><div id="dc00"></div><div id="dc01"></div><div id="dc02"></div><div id="dc03"></div></div></div>
     </li>
     <li class="nav-cat"><a href="#"><span id="nc1t"></span> ▾</a></li>
+    <li class="nav-cat"><a href="#"><span id="nc2t"></span> ▾</a></li>
     <li class="nav-cat"><a href="#"><span id="nc6t"></span></a></li>
   </ul>
-  <div class="nav-right">
-    <button class="btn-ui" onclick="toggleLang()">🌐 <span id="lang-lbl"></span></button>
-    <button class="btn-ui" onclick="openCart()">🛒 <span id="cart-total">$0.00</span></button>
+  <div class="nav-right" style="margin-inline-start: auto;">
+    <button class="add-btn" onclick="toggleLang()" style="width: auto;">🌐 <span id="lang-lbl"></span></button>
+    <button class="add-btn" onclick="openCart()" style="width: auto;">🛒 <span id="cart-nav-total">$0.00</span></button>
   </div>
 </nav>
 
@@ -101,10 +93,6 @@ nav{position:sticky;top:0;z-index:150;background:rgba(7,8,15,.92);backdrop-filte
   <div class="hero-badge" id="hb"></div>
   <h1 id="hh"></h1>
   <p id="hp"></p>
-  <div style="margin-top:20px; display:flex; gap:12px; justify-content:center;">
-    <button class="btn-big btn-big-p" id="hbtn1"></button>
-    <button class="btn-big" id="hbtn2" style="background:var(--surface); border:1px solid var(--border2); color:white;"></button>
-  </div>
 </section>
 
 <div class="stats">
@@ -124,12 +112,11 @@ nav{position:sticky;top:0;z-index:150;background:rgba(7,8,15,.92);backdrop-filte
   <div class="pgrid" id="pgrid"></div>
 </section>
 
-<section class="sec" style="background:var(--bg2); padding:40px; border-radius:var(--r);">
-    <h2 id="tm-title" style="margin-bottom:20px;"></h2>
-    <div style="line-height:1.8; font-size:14px; color:var(--sub);">
-        <h3 id="tm-h1"></h3><p id="tm-p1" style="margin-bottom:15px;"></p>
-        <h3 id="tm-h2" style="color:var(--accent2);"></h3><p id="tm-p2" style="margin-bottom:15px;"></p>
-        <h3 id="tm-h4"></h3><p id="tm-p4"></p>
+<section class="sec" id="terms-sec" style="background: var(--bg2); padding: 30px; border-radius: var(--r);">
+    <h2 id="tm-title"></h2><br>
+    <div style="font-size: 14px; color: var(--sub); line-height: 1.8;">
+        <h3 id="tm-h1"></h3><p id="tm-p1"></p><br>
+        <h3 id="tm-h2" style="color:var(--accent2)"></h3><p id="tm-p2"></p>
     </div>
 </section>
 
@@ -140,100 +127,98 @@ nav{position:sticky;top:0;z-index:150;background:rgba(7,8,15,.92);backdrop-filte
         <div style="display:flex; justify-content:space-between; margin-bottom:15px; font-weight:800;">
             <span id="ct3"></span><span id="ct3v" style="color:var(--accent3); font-size:20px;">$0.00</span>
         </div>
-        <button class="add-btn" id="ck-title" style="width:100%; height:50px;" onclick="alert('Proceeding...')"></button>
+        <button class="add-btn" id="ck-title" onclick="alert('Stripe Proceed...')"></button>
     </div>
 </div>
 
 <div class="toast" id="toast"></div>
 
 <script>
-// --- كائن اللغات الشامل الخاص بك ---
-const T={
-  ar:{
-    'topbar-txt':'🎉 خصم 2% عند الدفع بالكريبتو — كود: CRYPTO2  |  تسليم فوري ⚡',
-    'logo-sub':'جسر الكروت','lang-lbl':'EN',
-    'nc0t':'بطاقات الهدايا','nc1t':'رصيد الألعاب','nc2t':'مسبقة الدفع','nc3t':'كريبتو','nc4t':'أزياء','nc5t':'سوبرماركت','nc6t':'الجملة',
-    'hb':'🤝 برنامج شركاء الجملة العالمي','hh':'اشترِ بطاقات الهدايا<br><em>بأسعار الجملة الحصرية</em>','hp':'انضم لآلاف الموزعين حول العالم. تسليم فوري، خصومات تصل لـ 15%.',
-    'hbtn1':'ابدأ كشريك الآن','hbtn2':'تصفح الكتالوج','sl1':'شريك نشط','sl2':'منتج رقمي','sl3':'أقصى خصم','sl4':'تسليم فوري',
-    'tbl-all':'الكل','tbl-game':'ألعاب','tbl-gift':'هدايا','tbl-pre':'مسبقة الدفع',
-    'tm-title':'الشروط والأحكام وسياسة الاسترجاع','tm-h1':'1. طبيعة المنتجات','tm-p1':'جميع المنتجات المباعة في BridgeCards هي عبارة عن رموز رقمية يتم تسليمها إلكترونياً.','tm-h2':'2. سياسة الاسترجاع (هام جداً)','tm-p2':'لا يمكن استرجاع أي بطاقة بمجرد إتمام الدفع.','tm-h4':'4. التسعير','tm-p4':'تخضع أسعار المنتجات لتحديثات مستمرة بناءً على تكلفة المورد.',
-    'cart-title':'🛒 سلة المشتريات','ct3':'الإجمالي','ck-title':'إتمام الشراء'
-  },
-  en:{
-    'topbar-txt':'🎉 Extra 2% off with Crypto — code: CRYPTO2  |  Instant Delivery ⚡',
-    'logo-sub':'Bridge Cards','lang-lbl':'عربي',
-    'nc0t':'Gift Cards','nc1t':'Gaming Credits','nc2t':'Prepaid','nc6t':'Wholesale',
-    'hb':'🤝 Wholesale Partner Program','hh':'Buy Gift Cards<br><em>at Wholesale Prices</em>','hp':'Join thousands of distributors worldwide. Instant delivery, up to 15% discount.',
-    'hbtn1':'Join Now','hbtn2':'Browse Catalog','sl1':'Active Partners','sl2':'Products','sl3':'Max Discount','sl4':'Instant Delivery',
-    'tbl-all':'All','tbl-game':'Gaming','tbl-gift':'Gifts','tbl-pre':'Prepaid',
-    'tm-title':'Terms & Refund Policy','tm-h1':'1. Nature of Products','tm-p1':'All products are digital codes delivered via screen or email.','tm-h2':'2. Refund Policy','tm-p2':'No refunds once the code is generated.','tm-h4':'4. Pricing','tm-p4':'Prices update dynamically based on market costs.',
-    'cart-title':'🛒 Shopping Cart','ct3':'Total','ck-title':'Checkout'
-  }
+// ══ كائن اللغات الشامل الخاص بناصر ══
+const T = {
+  ar:{
+    'topbar-txt':'🎉 خصم 2% عند الدفع بالكريبتو — كود: CRYPTO2 | تسليم فوري ⚡',
+    'logo-sub':'جسر الكروت','lang-lbl':'EN',
+    'nc0t':'بطاقات الهدايا','nc1t':'رصيد الألعاب','nc2t':'مسبقة الدفع','nc6t':'الجملة',
+    'hb':'🤝 برنامج شركاء الجملة العالمي','hh':'اشترِ بطاقات الهدايا<br><em>بأسعار الجملة الحصرية</em>','hp':'انضم لآلاف الموزعين حول العالم. تسليم فوري، خصومات تصل لـ 15%.',
+    'sl1':'شريك نشط','sl2':'منتج رقمي','sl3':'أقصى خصم','sl4':'تسليم فوري','tbl-all':'الكل','tbl-game':'ألعاب','tbl-gift':'هدايا','tbl-pre':'مسبقة الدفع',
+    'tm-title':'الشروط والأحكام وسياسة الاسترجاع','tm-h1':'1. طبيعة المنتجات','tm-p1':'جميع المنتجات المباعة في BridgeCards هي رموز رقمية يتم تسليمها إلكترونياً.','tm-h2':'2. سياسة الاسترجاع','tm-p2':'لا يمكن استرجاع أي بطاقة بمجرد إتمام الدفع.','cart-title':'🛒 سلة المشتريات','ct3':'الإجمالي','ck-title':'إتمام الشراء'
+  },
+  en:{
+    'topbar-txt':'🎉 Extra 2% off with Crypto | Instant Delivery ⚡',
+    'logo-sub':'Bridge Cards','lang-lbl':'عربي',
+    'nc0t':'Gift Cards','nc1t':'Gaming','nc2t':'Prepaid','nc6t':'Wholesale',
+    'hb':'🤝 Wholesale Partner Program','hh':'Buy Gift Cards<br><em>at Wholesale Prices</em>','hp':'Join thousands of distributors. up to 15% discount.',
+    'sl1':'Partners','sl2':'Products','sl3':'Max Discount','sl4':'Instant','tbl-all':'All','tbl-game':'Gaming','tbl-gift':'Gifts','tbl-pre':'Prepaid',
+    'tm-title':'Terms & Refund Policy','tm-h1':'1. Nature','tm-p1':'All products are digital codes.','tm-h2':'2. Refund','tm-p2':'No refunds after issuing the code.','cart-title':'🛒 Cart','ct3':'Total','ck-title':'Checkout'
+  }
 };
 
-const STYLES = {
-    steam: {icon:'🎮', bg:'#1b2838'}, psn: {icon:'💙', bg:'#003087'}, xbox: {icon:'💚', bg:'#107c10'},
-    amazon: {icon:'📦', bg:'#ff9900'}, netflix: {icon:'🎬', bg:'#e50914'}, visa: {icon:'💳', bg:'#1a1f71'},
-    pubg: {icon:'🔫', bg:'#1a1a1a'}, roblox: {icon:'🧱', bg:'#ff0000'}
+// ══ نظام الاستايل الذكي (لمنع أخطاء الصور) ══
+const LOGOS = {
+  steam:{i:'🎮',b:'#1b2838'}, psn:{i:'💙',b:'#003087'}, xbox:{i:'💚',b:'#107c10'},
+  amazon:{i:'📦',b:'#ff9900'}, netflix:{i:'🎬',b:'#e50914'}, visa:{i:'💳',b:'#1a1f71'},
+  pubg:{i:'🔫',b:'#1a1a1a'}, roblox:{i:'🧱',b:'#ff0000'}, google:{i:'🤖',b:'#4285f4'}
 };
 
+// ══ مصفوفة المنتجات الضخمة ══
 const P = [
-    {id:'steam', cat:'game', name:{ar:'ستيم فوري', en:'Steam Global'}, price:10},
-    {id:'psn', cat:'game', name:{ar:'بلايستيشن', en:'PSN Card'}, price:20},
-    {id:'xbox', cat:'game', name:{ar:'إكس بوكس', en:'Xbox Card'}, price:15},
-    {id:'amazon', cat:'gift', name:{ar:'أمازون', en:'Amazon US'}, price:25},
-    {id:'netflix', cat:'gift', name:{ar:'نتفليكس', en:'Netflix'}, price:15},
-    {id:'visa', cat:'prepaid', name:{ar:'فيزا كارد', en:'Visa Prepaid'}, price:50},
-    {id:'pubg', cat:'game', name:{ar:'ببجي UC', en:'PUBG Mobile'}, price:5},
-    {id:'roblox', cat:'game', name:{ar:'روبلوكس', en:'Roblox'}, price:10}
+  {id:'steam', cat:'game', name:{ar:'ستيم فوري', en:'Steam Global'}, price:10},
+  {id:'psn', cat:'game', name:{ar:'بلايستيشن', en:'PSN Card'}, price:20},
+  {id:'xbox', cat:'game', name:{ar:'إكس بوكس', en:'Xbox Card'}, price:15},
+  {id:'amazon', cat:'gift', name:{ar:'أمازون', en:'Amazon US'}, price:25},
+  {id:'netflix', cat:'gift', name:{ar:'نتفليكس', en:'Netflix'}, price:15},
+  {id:'visa', cat:'prepaid', name:{ar:'فيزا كارد', en:'Visa Prepaid'}, price:50},
+  {id:'pubg', cat:'game', name:{ar:'ببجي UC', en:'PUBG UC'}, price:5},
+  {id:'roblox', cat:'game', name:{ar:'روبلوكس', en:'Roblox'}, price:10},
+  {id:'google', cat:'gift', name:{ar:'جوجل بلاي', en:'Google Play'}, price:10}
 ];
 
-let lang='ar', cart=[], filter='all';
+let lang = 'ar', cart = [], currentFilter = 'all';
 
 function renderProducts() {
-    const grid = document.getElementById('pgrid');
-    const list = filter==='all' ? P : P.filter(p=>p.cat===filter);
-    grid.innerHTML = list.map(p => {
-        const s = STYLES[p.id] || {icon:'🎫', bg:'var(--surface)'};
-        return `
-        <div class="pc">
-            <div class="pc-head" style="background:${s.bg}"><div class="pc-logo-box">${s.icon}</div></div>
-            <div class="pc-body">
-                <div class="pc-name">${p.name[lang]}</div>
-                <div class="pc-price">$${(p.price * 1.1).toFixed(2)}</div>
-                <button class="add-btn" onclick="addCart('${p.id}')">${lang==='ar'?'أضف +':'Add +'}</button>
-            </div>
-        </div>`;
-    }).join('');
+  const grid = document.getElementById('pgrid');
+  const list = currentFilter === 'all' ? P : P.filter(p => p.cat === currentFilter);
+  grid.innerHTML = list.map(p => {
+    const s = LOGOS[p.id] || {i:'🎫', b:'var(--surface)'};
+    return `<div class="pc">
+      <div class="pc-head" style="background:${s.b}">${s.i}</div>
+      <div class="pc-body">
+        <div class="pc-name">${p.name[lang]}</div>
+        <div class="pc-price">$${(p.price * 1.1).toFixed(2)}</div>
+        <button class="add-btn" onclick="addCart('${p.id}')">${lang==='ar'?'أضف +':'Add +'}</button>
+      </div>
+    </div>`;
+  }).join('');
 }
 
 function toggleLang() {
-    lang = lang==='ar' ? 'en' : 'ar';
-    const t = T[lang];
-    Object.keys(t).forEach(id => { const el=document.getElementById(id); if(el) el.innerHTML=t[id]; });
-    document.getElementById('htmlRoot').dir = lang==='ar'?'rtl':'ltr';
-    renderProducts();
+  lang = lang === 'ar' ? 'en' : 'ar';
+  const t = T[lang];
+  Object.keys(t).forEach(id => { const el = document.getElementById(id); if(el) el.innerHTML = t[id]; });
+  document.getElementById('htmlRoot').dir = lang === 'ar' ? 'rtl' : 'ltr';
+  renderProducts();
 }
 
 function addCart(id) {
-    cart.push(P.find(p=>p.id===id));
-    const total = cart.reduce((s,i)=>s+(i.price*1.1),0);
-    document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
-    document.getElementById('ct3v').textContent = `$${total.toFixed(2)}`;
-    const toast = document.getElementById('toast');
-    toast.textContent = lang==='ar'?"✅ تمت الإضافة":"✅ Added"; toast.classList.add('show');
-    setTimeout(()=>toast.classList.remove('show'),2000);
+  cart.push(P.find(p => p.id === id));
+  const total = cart.reduce((s, i) => s + (i.price * 1.1), 0);
+  document.getElementById('cart-nav-total').textContent = `$${total.toFixed(2)}`;
+  document.getElementById('ct3v').textContent = `$${total.toFixed(2)}`;
+  const toast = document.getElementById('toast');
+  toast.textContent = lang==='ar'?"✅ تمت الإضافة":"✅ Added"; toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 2000);
 }
 
 function filterTab(btn, cat) {
-    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
-    btn.classList.add('on'); filter=cat; renderProducts();
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('on'));
+  btn.classList.add('on'); currentFilter = cat; renderProducts();
 }
 
 function openCart() { document.getElementById('cartDr').classList.add('open'); }
 function closeCart() { document.getElementById('cartDr').classList.remove('open'); }
 
-window.onload = () => toggleLang();
+window.onload = () => { toggleLang(); };
 </script>
 </body>
 </html>
