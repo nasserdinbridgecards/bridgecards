@@ -126,7 +126,7 @@ nav{position:sticky;top:0;z-index:150;background:rgba(7,8,15,.92);backdrop-filte
 .pc-badge{position:absolute;top:8px;inset-inline-start:8px;background:var(--accent2);color:#fff;font-size:10px;font-weight:900;padding:2px 7px;border-radius:5px;}
 .pc-chip{position:absolute;bottom:7px;inset-inline-end:7px;background:rgba(0,0,0,.45);backdrop-filter:blur(4px);color:rgba(255,255,255,.7);font-size:9px;font-weight:800;padding:2px 6px;border-radius:20px;letter-spacing:.6px;text-transform:uppercase;}
 .pc-fallback{font-size:11px;font-weight:800;color:rgba(255,255,255,.9);text-align:center;padding:4px;display:none;}
-.pc-body{padding:10px 12px 12px;flex:1;display:flex;flex-direction:column;}
+.pc-body{padding:10px 12px 12px;flex:1;display:flex;flex-direction:column;min-height:0;}
 .pc-name{font-size:13px;font-weight:800;margin-bottom:3px;}
 .pc-reg{font-size:11px;color:var(--sub);margin-bottom:8px;}
 .denoms{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px;}
@@ -292,6 +292,9 @@ nav{position:sticky;top:0;z-index:150;background:rgba(7,8,15,.92);backdrop-filte
 @media(max-width:960px){.tiers{grid-template-columns:1fr;}.steps{grid-template-columns:1fr 1fr;}.contact{grid-template-columns:1fr;}.stats{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:640px){nav{padding:0 12px;gap:8px;}.nav-cats{display:none;}.hero{padding:48px 16px 32px;}.sec{padding:0 14px;}.steps{grid-template-columns:1fr;}.frow{grid-template-columns:1fr;}footer{flex-direction:column;align-items:flex-start;}.cart-dr{width:100vw;}}
 
+
+/* ─── STAR RATINGS ─── */
+.pc-stars{display:flex;align-items:center;flex-wrap:nowrap;margin-bottom:5px;line-height:1;}
 /* ─── SEARCH SYSTEM ─── */
 .search-wrap{position:relative;margin-bottom:14px;}
 .search-input{width:100%;padding:11px 44px 11px 16px;background:var(--card);border:1px solid var(--border2);border-radius:11px;color:var(--text);font-family:inherit;font-size:14px;outline:none;transition:border-color .25s,box-shadow .25s;}
@@ -382,20 +385,20 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
     <li class="nav-cat" data-ni="0"><a id="nc0">🎁 <span id="nc0t">بطاقات الهدايا</span> <span class="chev">▾</span></a>
       <div class="drop"><div class="drop-inner c4" id="drop0">
         <div><div class="drop-col-title"><span>🛍️</span><span id="dc00">تسوق وتقنية</span></div>
-          <a class="ditem" onclick="jcat('gift','amazon')"><div class="ditem-logo" style="background:linear-gradient(135deg,#131921,#ff9900)"><img src="https://logo.clearbit.com/amazon.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Amazon</div><div class="ditem-sub">$10–$200</div></div><span class="dbadge">-6%</span></a>
-          <a class="ditem" onclick="jcat('gift','ebay')"><div class="ditem-logo" style="background:linear-gradient(135deg,#e53238,#0064d2)"><img src="https://logo.clearbit.com/ebay.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">eBay</div><div class="ditem-sub">$25–$200</div></div><span class="dbadge">-6%</span></a>
+          <a class="ditem" onclick="jcat('gift','amazon')"><div class="ditem-logo" style="background:linear-gradient(135deg,#131921,#ff9900)"><img src="https://www.google.com/s2/favicons?domain=amazon.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Amazon</div><div class="ditem-sub">$10–$200</div></div><span class="dbadge">-6%</span></a>
+          <a class="ditem" onclick="jcat('gift','ebay')"><div class="ditem-logo" style="background:linear-gradient(135deg,#e53238,#0064d2)"><img src="https://www.google.com/s2/favicons?domain=ebay.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">eBay</div><div class="ditem-sub">$25–$200</div></div><span class="dbadge">-6%</span></a>
         </div>
         <div><div class="drop-col-title"><span>🎵</span><span id="dc01">ترفيه</span></div>
-          <a class="ditem" onclick="jcat('gift','netflix')"><div class="ditem-logo" style="background:linear-gradient(135deg,#141414,#e50914)"><img src="https://logo.clearbit.com/netflix.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Netflix</div><div class="ditem-sub">$15–$100</div></div><span class="dbadge">-5%</span></a>
-          <a class="ditem" onclick="jcat('gift','spotify')"><div class="ditem-logo" style="background:linear-gradient(135deg,#121212,#1db954)"><img src="https://logo.clearbit.com/spotify.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Spotify</div><div class="ditem-sub">$10–$60</div></div><span class="dbadge">-5%</span></a>
+          <a class="ditem" onclick="jcat('gift','netflix')"><div class="ditem-logo" style="background:linear-gradient(135deg,#141414,#e50914)"><img src="https://www.google.com/s2/favicons?domain=netflix.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Netflix</div><div class="ditem-sub">$15–$100</div></div><span class="dbadge">-5%</span></a>
+          <a class="ditem" onclick="jcat('gift','spotify')"><div class="ditem-logo" style="background:linear-gradient(135deg,#121212,#1db954)"><img src="https://www.google.com/s2/favicons?domain=spotify.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Spotify</div><div class="ditem-sub">$10–$60</div></div><span class="dbadge">-5%</span></a>
         </div>
         <div><div class="drop-col-title"><span>📱</span><span id="dc02">تطبيقات</span></div>
-          <a class="ditem" onclick="jcat('gift','google')"><div class="ditem-logo" style="background:linear-gradient(135deg,#01875f,#4285f4)"><img src="https://logo.clearbit.com/play.google.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Google Play</div><div class="ditem-sub">$5–$100</div></div><span class="dbadge">-8%</span></a>
-          <a class="ditem" onclick="jcat('gift','apple')"><div class="ditem-logo" style="background:linear-gradient(135deg,#1c1c1e,#3a3a3c)"><img src="https://logo.clearbit.com/apple.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">App Store</div><div class="ditem-sub">$10–$100</div></div><span class="dbadge">-7%</span></a>
+          <a class="ditem" onclick="jcat('gift','google')"><div class="ditem-logo" style="background:linear-gradient(135deg,#01875f,#4285f4)"><img src="https://www.google.com/s2/favicons?domain=play.google.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Google Play</div><div class="ditem-sub">$5–$100</div></div><span class="dbadge">-8%</span></a>
+          <a class="ditem" onclick="jcat('gift','apple')"><div class="ditem-logo" style="background:linear-gradient(135deg,#1c1c1e,#3a3a3c)"><img src="https://www.google.com/s2/favicons?domain=apple.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">App Store</div><div class="ditem-sub">$10–$100</div></div><span class="dbadge">-7%</span></a>
         </div>
         <div><div class="drop-col-title"><span>🏠</span><span id="dc03">أثاث ومنزل</span></div>
-          <a class="ditem" onclick="jcat('home','ikea')"><div class="ditem-logo" style="background:linear-gradient(135deg,#0051a2,#ffda1a)"><img src="https://logo.clearbit.com/ikea.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">IKEA</div><div class="ditem-sub">€25–€250</div></div><span class="dbadge">-6%</span></a>
-          <a class="ditem" onclick="jcat('home','wayfair')"><div class="ditem-logo" style="background:linear-gradient(135deg,#7b2d8b,#a044b0)"><img src="https://logo.clearbit.com/wayfair.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Wayfair</div><div class="ditem-sub">$25–$200</div></div><span class="dbadge">-6%</span></a>
+          <a class="ditem" onclick="jcat('home','ikea')"><div class="ditem-logo" style="background:linear-gradient(135deg,#0051a2,#ffda1a)"><img src="https://www.google.com/s2/favicons?domain=ikea.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">IKEA</div><div class="ditem-sub">€25–€250</div></div><span class="dbadge">-6%</span></a>
+          <a class="ditem" onclick="jcat('home','wayfair')"><div class="ditem-logo" style="background:linear-gradient(135deg,#7b2d8b,#a044b0)"><img src="https://www.google.com/s2/favicons?domain=wayfair.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Wayfair</div><div class="ditem-sub">$25–$200</div></div><span class="dbadge">-6%</span></a>
         </div>
       </div></div>
     </li>
@@ -403,23 +406,23 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
     <li class="nav-cat" data-ni="1"><a id="nc1">🎮 <span id="nc1t">رصيد الألعاب</span> <span class="chev">▾</span></a>
       <div class="drop"><div class="drop-inner c4">
         <div><div class="drop-col-title"><span>🖥️</span><span id="dc10">كونسول</span></div>
-          <a class="ditem" onclick="jcat('game','psn')"><div class="ditem-logo" style="background:linear-gradient(135deg,#003087,#0070d1)"><img src="https://logo.clearbit.com/playstation.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">PlayStation</div><div class="ditem-sub">$10–$100</div></div><span class="dbadge">-10%</span></a>
-          <a class="ditem" onclick="jcat('game','xbox')"><div class="ditem-logo" style="background:linear-gradient(135deg,#107c10,#52b043)"><img src="https://logo.clearbit.com/xbox.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Xbox</div><div class="ditem-sub">$5–$50</div></div><span class="dbadge">-9%</span></a>
-          <a class="ditem" onclick="jcat('game','nintendo')"><div class="ditem-logo" style="background:linear-gradient(135deg,#e60012,#ff4444)"><img src="https://logo.clearbit.com/nintendo.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Nintendo eShop</div><div class="ditem-sub">$10–$50</div></div><span class="dbadge">-8%</span></a>
+          <a class="ditem" onclick="jcat('game','psn')"><div class="ditem-logo" style="background:linear-gradient(135deg,#003087,#0070d1)"><img src="https://www.google.com/s2/favicons?domain=playstation.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">PlayStation</div><div class="ditem-sub">$10–$100</div></div><span class="dbadge">-10%</span></a>
+          <a class="ditem" onclick="jcat('game','xbox')"><div class="ditem-logo" style="background:linear-gradient(135deg,#107c10,#52b043)"><img src="https://www.google.com/s2/favicons?domain=xbox.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Xbox</div><div class="ditem-sub">$5–$50</div></div><span class="dbadge">-9%</span></a>
+          <a class="ditem" onclick="jcat('game','nintendo')"><div class="ditem-logo" style="background:linear-gradient(135deg,#e60012,#ff4444)"><img src="https://www.google.com/s2/favicons?domain=nintendo.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Nintendo eShop</div><div class="ditem-sub">$10–$50</div></div><span class="dbadge">-8%</span></a>
         </div>
         <div><div class="drop-col-title"><span>💻</span><span id="dc11">PC</span></div>
-          <a class="ditem" onclick="jcat('game','steam')"><div class="ditem-logo" style="background:linear-gradient(135deg,#1b2838,#2a475e)"><img src="https://logo.clearbit.com/steampowered.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Steam</div><div class="ditem-sub">$5–$100</div></div><span class="dbadge">-8%</span></a>
-          <a class="ditem" onclick="jcat('game','ea')"><div class="ditem-logo" style="background:linear-gradient(135deg,#ff4500,#ff6a00)"><img src="https://logo.clearbit.com/ea.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">EA Play</div><div class="ditem-sub">Monthly/Annual</div></div><span class="dbadge">-18%</span></a>
-          <a class="ditem" onclick="jcat('game','razer')"><div class="ditem-logo" style="background:linear-gradient(135deg,#000,#00c800)"><img src="https://logo.clearbit.com/razer.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Razer Gold</div><div class="ditem-sub">$5–$25</div></div><span class="dbadge">-10%</span></a>
+          <a class="ditem" onclick="jcat('game','steam')"><div class="ditem-logo" style="background:linear-gradient(135deg,#1b2838,#2a475e)"><img src="https://www.google.com/s2/favicons?domain=steampowered.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Steam</div><div class="ditem-sub">$5–$100</div></div><span class="dbadge">-8%</span></a>
+          <a class="ditem" onclick="jcat('game','ea')"><div class="ditem-logo" style="background:linear-gradient(135deg,#ff4500,#ff6a00)"><img src="https://www.google.com/s2/favicons?domain=ea.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">EA Play</div><div class="ditem-sub">Monthly/Annual</div></div><span class="dbadge">-18%</span></a>
+          <a class="ditem" onclick="jcat('game','razer')"><div class="ditem-logo" style="background:linear-gradient(135deg,#000,#00c800)"><img src="https://www.google.com/s2/favicons?domain=razer.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Razer Gold</div><div class="ditem-sub">$5–$25</div></div><span class="dbadge">-10%</span></a>
         </div>
         <div><div class="drop-col-title"><span>📱</span><span id="dc12">موبايل</span></div>
-          <a class="ditem" onclick="jcat('game','pubg')"><div class="ditem-logo" style="background:linear-gradient(135deg,#1a1a1a,#f7a21b)"><img src="https://logo.clearbit.com/pubg.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">PUBG Mobile</div><div class="ditem-sub">60–1800 UC</div></div><span class="dbadge">-12%</span></a>
-          <a class="ditem" onclick="jcat('game','freefire')"><div class="ditem-logo" style="background:linear-gradient(135deg,#1a0a2e,#ff4500)"><img src="https://logo.clearbit.com/garena.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Free Fire</div><div class="ditem-sub">100–1060 💎</div></div><span class="dbadge">-9%</span></a>
-          <a class="ditem" onclick="jcat('game','roblox')"><div class="ditem-logo" style="background:linear-gradient(135deg,#cc0000,#ff4444)"><img src="https://logo.clearbit.com/roblox.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Roblox</div><div class="ditem-sub">$10–$50</div></div><span class="dbadge">-7%</span></a>
+          <a class="ditem" onclick="jcat('game','pubg')"><div class="ditem-logo" style="background:linear-gradient(135deg,#1a1a1a,#f7a21b)"><img src="https://www.google.com/s2/favicons?domain=pubg.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">PUBG Mobile</div><div class="ditem-sub">60–1800 UC</div></div><span class="dbadge">-12%</span></a>
+          <a class="ditem" onclick="jcat('game','freefire')"><div class="ditem-logo" style="background:linear-gradient(135deg,#1a0a2e,#ff4500)"><img src="https://www.google.com/s2/favicons?domain=garena.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Free Fire</div><div class="ditem-sub">100–1060 💎</div></div><span class="dbadge">-9%</span></a>
+          <a class="ditem" onclick="jcat('game','roblox')"><div class="ditem-logo" style="background:linear-gradient(135deg,#cc0000,#ff4444)"><img src="https://www.google.com/s2/favicons?domain=roblox.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Roblox</div><div class="ditem-sub">$10–$50</div></div><span class="dbadge">-7%</span></a>
           <a class="ditem" onclick="jcat('game','yalla-ludo')"><div class="ditem-logo" style="background:linear-gradient(135deg,#4a0072,#ff4d00)"><span style="font-size:9px;font-weight:900;color:#ffe066;">Yalla</span></div><div class="ditem-info"><div class="ditem-name">Yalla Ludo 💎</div><div class="ditem-sub">50–3000 💎</div></div><span class="dbadge">-10%</span></a>
         </div>
         <div><div class="drop-col-title"><span>🏆</span><span id="dc13">Battle Royale</span></div>
-          <a class="ditem" onclick="jcat('game','fortnite')"><div class="ditem-logo" style="background:linear-gradient(135deg,#1900ff,#00cfff)"><img src="https://logo.clearbit.com/epicgames.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Fortnite V-Bucks</div><div class="ditem-sub">1000–5000</div></div><span class="dbadge">-11%</span></a>
+          <a class="ditem" onclick="jcat('game','fortnite')"><div class="ditem-logo" style="background:linear-gradient(135deg,#1900ff,#00cfff)"><img src="https://www.google.com/s2/favicons?domain=epicgames.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Fortnite V-Bucks</div><div class="ditem-sub">1000–5000</div></div><span class="dbadge">-11%</span></a>
         </div>
       </div></div>
     </li>
@@ -427,19 +430,19 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
     <li class="nav-cat" data-ni="2"><a id="nc2">💳 <span id="nc2t">مسبقة الدفع</span> <span class="chev">▾</span></a>
       <div class="drop"><div class="drop-inner c3">
         <div><div class="drop-col-title"><span>💳</span><span id="dc20">بطاقات دولية</span></div>
-          <a class="ditem" onclick="jcat('prepaid','visa')"><div class="ditem-logo" style="background:linear-gradient(135deg,#1a1f71,#0057b7)"><img src="https://logo.clearbit.com/visa.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Visa Prepaid</div><div class="ditem-sub">$10–$200</div></div><span class="dbadge">-4%</span></a>
-          <a class="ditem" onclick="jcat('prepaid','mc')"><div class="ditem-logo" style="background:linear-gradient(135deg,#252525,#eb001b)"><img src="https://logo.clearbit.com/mastercard.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Mastercard</div><div class="ditem-sub">$10–$250</div></div><span class="dbadge">-5%</span></a>
-          <a class="ditem" onclick="jcat('prepaid','amex')"><div class="ditem-logo" style="background:linear-gradient(135deg,#007bc1,#00a3e0)"><img src="https://logo.clearbit.com/americanexpress.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">American Express</div><div class="ditem-sub">$25–$200</div></div><span class="dbadge">-4%</span></a>
-          <a class="ditem" onclick="jcat('prepaid','visa-gift')"><div class="ditem-logo" style="background:linear-gradient(135deg,#1a1f71,#ff9900)"><img src="https://logo.clearbit.com/visa.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Visa Gift</div><div class="ditem-sub">$10–$200</div></div><span class="dbadge">-4%</span></a>
+          <a class="ditem" onclick="jcat('prepaid','visa')"><div class="ditem-logo" style="background:linear-gradient(135deg,#1a1f71,#0057b7)"><img src="https://www.google.com/s2/favicons?domain=visa.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Visa Prepaid</div><div class="ditem-sub">$10–$200</div></div><span class="dbadge">-4%</span></a>
+          <a class="ditem" onclick="jcat('prepaid','mc')"><div class="ditem-logo" style="background:linear-gradient(135deg,#252525,#eb001b)"><img src="https://www.google.com/s2/favicons?domain=mastercard.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Mastercard</div><div class="ditem-sub">$10–$250</div></div><span class="dbadge">-5%</span></a>
+          <a class="ditem" onclick="jcat('prepaid','amex')"><div class="ditem-logo" style="background:linear-gradient(135deg,#007bc1,#00a3e0)"><img src="https://www.google.com/s2/favicons?domain=americanexpress.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">American Express</div><div class="ditem-sub">$25–$200</div></div><span class="dbadge">-4%</span></a>
+          <a class="ditem" onclick="jcat('prepaid','visa-gift')"><div class="ditem-logo" style="background:linear-gradient(135deg,#1a1f71,#ff9900)"><img src="https://www.google.com/s2/favicons?domain=visa.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Visa Gift</div><div class="ditem-sub">$10–$200</div></div><span class="dbadge">-4%</span></a>
         </div>
         <div><div class="drop-col-title"><span>🌐</span><span id="dc21">محافظ رقمية</span></div>
-          <a class="ditem" onclick="jcat('prepaid','astropay')"><div class="ditem-logo" style="background:linear-gradient(135deg,#003087,#009cde)"><img src="https://logo.clearbit.com/astropay.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">AstroPay</div><div class="ditem-sub">$10–$100</div></div><span class="dbadge">-5%</span></a>
-          <a class="ditem" onclick="jcat('prepaid','jetoncash')"><div class="ditem-logo" style="background:linear-gradient(135deg,#0d0d26,#5c6bc0)"><img src="https://logo.clearbit.com/jeton.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">JetonCash</div><div class="ditem-sub">€10–€200</div></div><span class="dbadge">-5%</span></a>
-          <a class="ditem" onclick="jcat('prepaid','neosurf')"><div class="ditem-logo" style="background:linear-gradient(135deg,#7f0000,#e53935)"><img src="https://logo.clearbit.com/neosurf.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Neosurf</div><div class="ditem-sub">€10–€100</div></div><span class="dbadge">-5%</span></a>
+          <a class="ditem" onclick="jcat('prepaid','astropay')"><div class="ditem-logo" style="background:linear-gradient(135deg,#003087,#009cde)"><img src="https://www.google.com/s2/favicons?domain=astropay.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">AstroPay</div><div class="ditem-sub">$10–$100</div></div><span class="dbadge">-5%</span></a>
+          <a class="ditem" onclick="jcat('prepaid','jetoncash')"><div class="ditem-logo" style="background:linear-gradient(135deg,#0d0d26,#5c6bc0)"><img src="https://www.google.com/s2/favicons?domain=jeton.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">JetonCash</div><div class="ditem-sub">€10–€200</div></div><span class="dbadge">-5%</span></a>
+          <a class="ditem" onclick="jcat('prepaid','neosurf')"><div class="ditem-logo" style="background:linear-gradient(135deg,#7f0000,#e53935)"><img src="https://www.google.com/s2/favicons?domain=neosurf.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Neosurf</div><div class="ditem-sub">€10–€100</div></div><span class="dbadge">-5%</span></a>
         </div>
         <div><div class="drop-col-title"><span>🔐</span><span id="dc22">PIN Cards</span></div>
-          <a class="ditem" onclick="jcat('prepaid','flexepin')"><div class="ditem-logo" style="background:linear-gradient(135deg,#003066,#0080ff)"><img src="https://logo.clearbit.com/flexepin.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Flexepin</div><div class="ditem-sub">$10–$150</div></div><span class="dbadge">-5%</span></a>
-          <a class="ditem" onclick="jcat('prepaid','prepaidy')"><div class="ditem-logo" style="background:linear-gradient(135deg,#0d47a1,#42a5f5)"><img src="https://logo.clearbit.com/prepaidy.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Prepaidy</div><div class="ditem-sub">€10–€100</div></div><span class="dbadge">-5%</span></a>
+          <a class="ditem" onclick="jcat('prepaid','flexepin')"><div class="ditem-logo" style="background:linear-gradient(135deg,#003066,#0080ff)"><img src="https://www.google.com/s2/favicons?domain=flexepin.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Flexepin</div><div class="ditem-sub">$10–$150</div></div><span class="dbadge">-5%</span></a>
+          <a class="ditem" onclick="jcat('prepaid','prepaidy')"><div class="ditem-logo" style="background:linear-gradient(135deg,#0d47a1,#42a5f5)"><img src="https://www.google.com/s2/favicons?domain=prepaidy.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Prepaidy</div><div class="ditem-sub">€10–€100</div></div><span class="dbadge">-5%</span></a>
         </div>
       </div></div>
     </li>
@@ -447,10 +450,10 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
     <li class="nav-cat" data-ni="3"><a id="nc3">₿ <span id="nc3t">كريبتو</span> <span class="chev">▾</span></a>
       <div class="drop"><div class="drop-inner c4">
         <div><div class="drop-col-title"><span>🏦</span><span id="dc30">بورصات</span></div>
-          <a class="ditem" onclick="jcat('crypto','binance')"><div class="ditem-logo" style="background:linear-gradient(135deg,#1a1208,#f3ba2f)"><img src="https://logo.clearbit.com/binance.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Binance</div><div class="ditem-sub">$10–$500</div></div></a>
-          <a class="ditem" onclick="jcat('crypto','bybit')"><div class="ditem-logo" style="background:linear-gradient(135deg,#0d0d1a,#f7a600)"><img src="https://logo.clearbit.com/bybit.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Bybit</div><div class="ditem-sub">$10–$200</div></div></a>
-          <a class="ditem" onclick="jcat('crypto','coinbase')"><div class="ditem-logo" style="background:linear-gradient(135deg,#0a0b1e,#0052ff)"><img src="https://logo.clearbit.com/coinbase.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Coinbase</div><div class="ditem-sub">$25–$200</div></div></a>
-          <a class="ditem" onclick="jcat('crypto','okx')"><div class="ditem-logo" style="background:#000"><img src="https://logo.clearbit.com/okx.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">OKX</div><div class="ditem-sub">$25–$250</div></div></a>
+          <a class="ditem" onclick="jcat('crypto','binance')"><div class="ditem-logo" style="background:linear-gradient(135deg,#1a1208,#f3ba2f)"><img src="https://www.google.com/s2/favicons?domain=binance.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Binance</div><div class="ditem-sub">$10–$500</div></div></a>
+          <a class="ditem" onclick="jcat('crypto','bybit')"><div class="ditem-logo" style="background:linear-gradient(135deg,#0d0d1a,#f7a600)"><img src="https://www.google.com/s2/favicons?domain=bybit.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Bybit</div><div class="ditem-sub">$10–$200</div></div></a>
+          <a class="ditem" onclick="jcat('crypto','coinbase')"><div class="ditem-logo" style="background:linear-gradient(135deg,#0a0b1e,#0052ff)"><img src="https://www.google.com/s2/favicons?domain=coinbase.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Coinbase</div><div class="ditem-sub">$25–$200</div></div></a>
+          <a class="ditem" onclick="jcat('crypto','okx')"><div class="ditem-logo" style="background:#000"><img src="https://www.google.com/s2/favicons?domain=okx.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">OKX</div><div class="ditem-sub">$25–$250</div></div></a>
         </div>
         <div><div class="drop-col-title"><span>₿</span><span id="dc31">عملات</span></div>
           <a class="ditem" onclick="jcat('crypto','btc')"><div class="ditem-logo" style="background:linear-gradient(135deg,#1a0d00,#f7931a)"><span style="font-size:16px;">₿</span></div><div class="ditem-info"><div class="ditem-name">Bitcoin BTC</div><div class="ditem-sub">$25–$500</div></div></a>
@@ -462,8 +465,8 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
           <a class="ditem" onclick="jcat('crypto','usdc')"><div class="ditem-logo" style="background:linear-gradient(135deg,#0a1f45,#2775ca)"><span style="font-size:10px;font-weight:900;color:#2775ca;">USDC</span></div><div class="ditem-info"><div class="ditem-name">USDC</div><div class="ditem-sub">$10–$500</div></div></a>
         </div>
         <div><div class="drop-col-title"><span>🔄</span><span id="dc33">منصات أخرى</span></div>
-          <a class="ditem" onclick="jcat('crypto','kucoin')"><div class="ditem-logo" style="background:linear-gradient(135deg,#0a1628,#24ae8f)"><img src="https://logo.clearbit.com/kucoin.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">KuCoin</div><div class="ditem-sub">$10–$100</div></div></a>
-          <a class="ditem" onclick="jcat('crypto','gateio')"><div class="ditem-logo" style="background:linear-gradient(135deg,#0b1426,#00b897)"><img src="https://logo.clearbit.com/gate.io" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Gate.io</div><div class="ditem-sub">$10–$100</div></div></a>
+          <a class="ditem" onclick="jcat('crypto','kucoin')"><div class="ditem-logo" style="background:linear-gradient(135deg,#0a1628,#24ae8f)"><img src="https://www.google.com/s2/favicons?domain=kucoin.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">KuCoin</div><div class="ditem-sub">$10–$100</div></div></a>
+          <a class="ditem" onclick="jcat('crypto','gateio')"><div class="ditem-logo" style="background:linear-gradient(135deg,#0b1426,#00b897)"><img src="https://www.google.com/s2/favicons?domain=gate.io&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Gate.io</div><div class="ditem-sub">$10–$100</div></div></a>
         </div>
       </div></div>
     </li>
@@ -471,26 +474,26 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
     <li class="nav-cat" data-ni="4"><a id="nc4">👗 <span id="nc4t">أزياء</span> <span class="chev">▾</span></a>
       <div class="drop"><div class="drop-inner c4">
         <div><div class="drop-col-title"><span>🌐</span><span id="dc40">عالمي</span></div>
-          <a class="ditem" onclick="jcat('fashion','zara')"><div class="ditem-logo" style="background:#000"><img src="https://logo.clearbit.com/zara.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Zara</div><div class="ditem-sub">€20–€150</div></div><span class="dbadge">-6%</span></a>
-          <a class="ditem" onclick="jcat('fashion','hm')"><div class="ditem-logo" style="background:#cc0000"><img src="https://logo.clearbit.com/hm.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">H&M</div><div class="ditem-sub">€20–€100</div></div><span class="dbadge">-7%</span></a>
-          <a class="ditem" onclick="jcat('fashion','nike')"><div class="ditem-logo" style="background:#111"><img src="https://logo.clearbit.com/nike.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Nike</div><div class="ditem-sub">$25–$100</div></div><span class="dbadge">-7%</span></a>
-          <a class="ditem" onclick="jcat('fashion','adidas')"><div class="ditem-logo" style="background:#000"><img src="https://logo.clearbit.com/adidas.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Adidas</div><div class="ditem-sub">$25–$100</div></div><span class="dbadge">-7%</span></a>
+          <a class="ditem" onclick="jcat('fashion','zara')"><div class="ditem-logo" style="background:#000"><img src="https://www.google.com/s2/favicons?domain=zara.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Zara</div><div class="ditem-sub">€20–€150</div></div><span class="dbadge">-6%</span></a>
+          <a class="ditem" onclick="jcat('fashion','hm')"><div class="ditem-logo" style="background:#cc0000"><img src="https://www.google.com/s2/favicons?domain=hm.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">H&M</div><div class="ditem-sub">€20–€100</div></div><span class="dbadge">-7%</span></a>
+          <a class="ditem" onclick="jcat('fashion','nike')"><div class="ditem-logo" style="background:#111"><img src="https://www.google.com/s2/favicons?domain=nike.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Nike</div><div class="ditem-sub">$25–$100</div></div><span class="dbadge">-7%</span></a>
+          <a class="ditem" onclick="jcat('fashion','adidas')"><div class="ditem-logo" style="background:#000"><img src="https://www.google.com/s2/favicons?domain=adidas.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Adidas</div><div class="ditem-sub">$25–$100</div></div><span class="dbadge">-7%</span></a>
         </div>
         <div><div class="drop-col-title"><span>🇬🇧</span><span id="dc41">UK / Online</span></div>
-          <a class="ditem" onclick="jcat('fashion','asos')"><div class="ditem-logo" style="background:linear-gradient(135deg,#2c2c2c,#2a6ebb)"><img src="https://logo.clearbit.com/asos.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">ASOS</div><div class="ditem-sub">£10–£100</div></div><span class="dbadge">-6%</span></a>
-          <a class="ditem" onclick="jcat('fashion','macys')"><div class="ditem-logo" style="background:linear-gradient(135deg,#8b0000,#b22222)"><img src="https://logo.clearbit.com/macys.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Macy's</div><div class="ditem-sub">$25–$100</div></div><span class="dbadge">-6%</span></a>
-          <a class="ditem" onclick="jcat('fashion','uniqlo')"><div class="ditem-logo" style="background:#cc0000"><img src="https://logo.clearbit.com/uniqlo.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Uniqlo</div><div class="ditem-sub">¥1000–¥5000</div></div><span class="dbadge">-7%</span></a>
+          <a class="ditem" onclick="jcat('fashion','asos')"><div class="ditem-logo" style="background:linear-gradient(135deg,#2c2c2c,#2a6ebb)"><img src="https://www.google.com/s2/favicons?domain=asos.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">ASOS</div><div class="ditem-sub">£10–£100</div></div><span class="dbadge">-6%</span></a>
+          <a class="ditem" onclick="jcat('fashion','macys')"><div class="ditem-logo" style="background:linear-gradient(135deg,#8b0000,#b22222)"><img src="https://www.google.com/s2/favicons?domain=macys.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Macy's</div><div class="ditem-sub">$25–$100</div></div><span class="dbadge">-6%</span></a>
+          <a class="ditem" onclick="jcat('fashion','uniqlo')"><div class="ditem-logo" style="background:#cc0000"><img src="https://www.google.com/s2/favicons?domain=uniqlo.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Uniqlo</div><div class="ditem-sub">¥1000–¥5000</div></div><span class="dbadge">-7%</span></a>
         </div>
         <div><div class="drop-col-title"><span>🇹🇷</span><span id="dc42">تركية 1</span></div>
-          <a class="ditem" onclick="jcat('fashion','lcwaikiki')"><div class="ditem-logo" style="background:#e60026"><img src="https://logo.clearbit.com/lcwaikiki.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">LC Waikiki</div><div class="ditem-sub">250–5000 ₺</div></div><span class="dbadge">-7%</span></a>
-          <a class="ditem" onclick="jcat('fashion','defacto')"><div class="ditem-logo" style="background:#000"><img src="https://logo.clearbit.com/defacto.com.tr" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">DeFacto</div><div class="ditem-sub">250–2000 ₺</div></div><span class="dbadge">-7%</span></a>
-          <a class="ditem" onclick="jcat('fashion','koton')"><div class="ditem-logo" style="background:#1a1a1a"><img src="https://logo.clearbit.com/koton.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Koton</div><div class="ditem-sub">250–2000 ₺</div></div><span class="dbadge">-7%</span></a>
-          <a class="ditem" onclick="jcat('fashion','boyner')"><div class="ditem-logo" style="background:#e60033"><img src="https://logo.clearbit.com/boyner.com.tr" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Boyner</div><div class="ditem-sub">250–5000 ₺</div></div><span class="dbadge">-7%</span></a>
+          <a class="ditem" onclick="jcat('fashion','lcwaikiki')"><div class="ditem-logo" style="background:#e60026"><img src="https://www.google.com/s2/favicons?domain=lcwaikiki.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">LC Waikiki</div><div class="ditem-sub">250–5000 ₺</div></div><span class="dbadge">-7%</span></a>
+          <a class="ditem" onclick="jcat('fashion','defacto')"><div class="ditem-logo" style="background:#000"><img src="https://www.google.com/s2/favicons?domain=defacto.com.tr&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">DeFacto</div><div class="ditem-sub">250–2000 ₺</div></div><span class="dbadge">-7%</span></a>
+          <a class="ditem" onclick="jcat('fashion','koton')"><div class="ditem-logo" style="background:#1a1a1a"><img src="https://www.google.com/s2/favicons?domain=koton.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Koton</div><div class="ditem-sub">250–2000 ₺</div></div><span class="dbadge">-7%</span></a>
+          <a class="ditem" onclick="jcat('fashion','boyner')"><div class="ditem-logo" style="background:#e60033"><img src="https://www.google.com/s2/favicons?domain=boyner.com.tr&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Boyner</div><div class="ditem-sub">250–5000 ₺</div></div><span class="dbadge">-7%</span></a>
         </div>
         <div><div class="drop-col-title"><span>👑</span><span id="dc43">تركية فاخرة</span></div>
-          <a class="ditem" onclick="jcat('fashion','beymen')"><div class="ditem-logo" style="background:#1c1c1c"><img src="https://logo.clearbit.com/beymen.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Beymen</div><div class="ditem-sub">1000–10000 ₺</div></div><span class="dbadge">-7%</span></a>
-          <a class="ditem" onclick="jcat('fashion','vakko')"><div class="ditem-logo" style="background:#0d0d0d"><img src="https://logo.clearbit.com/vakko.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Vakko</div><div class="ditem-sub">1000–5000 ₺</div></div><span class="dbadge">-7%</span></a>
-          <a class="ditem" onclick="jcat('fashion','mango-tr')"><div class="ditem-logo" style="background:#111"><img src="https://logo.clearbit.com/mango.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Mango</div><div class="ditem-sub">500–2000 ₺</div></div><span class="dbadge">-7%</span></a>
+          <a class="ditem" onclick="jcat('fashion','beymen')"><div class="ditem-logo" style="background:#1c1c1c"><img src="https://www.google.com/s2/favicons?domain=beymen.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Beymen</div><div class="ditem-sub">1000–10000 ₺</div></div><span class="dbadge">-7%</span></a>
+          <a class="ditem" onclick="jcat('fashion','vakko')"><div class="ditem-logo" style="background:#0d0d0d"><img src="https://www.google.com/s2/favicons?domain=vakko.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Vakko</div><div class="ditem-sub">1000–5000 ₺</div></div><span class="dbadge">-7%</span></a>
+          <a class="ditem" onclick="jcat('fashion','mango-tr')"><div class="ditem-logo" style="background:#111"><img src="https://www.google.com/s2/favicons?domain=mango.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Mango</div><div class="ditem-sub">500–2000 ₺</div></div><span class="dbadge">-7%</span></a>
         </div>
       </div></div>
     </li>
@@ -498,21 +501,21 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
     <li class="nav-cat" data-ni="5"><a id="nc5">🛒 <span id="nc5t">سوبرماركت</span> <span class="chev">▾</span></a>
       <div class="drop"><div class="drop-inner c3">
         <div><div class="drop-col-title"><span>🇺🇸</span><span id="dc50">أمريكا</span></div>
-          <a class="ditem" onclick="jcat('retail','walmart')"><div class="ditem-logo" style="background:linear-gradient(135deg,#004c97,#0071ce)"><img src="https://logo.clearbit.com/walmart.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Walmart</div><div class="ditem-sub">$10–$500</div></div><span class="dbadge">-6%</span></a>
-          <a class="ditem" onclick="jcat('retail','target')"><div class="ditem-logo" style="background:#cc0000"><img src="https://logo.clearbit.com/target.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Target</div><div class="ditem-sub">$10–$200</div></div><span class="dbadge">-6%</span></a>
-          <a class="ditem" onclick="jcat('retail','costco')"><div class="ditem-logo" style="background:#005daa"><img src="https://logo.clearbit.com/costco.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Costco</div><div class="ditem-sub">$25–$500</div></div><span class="dbadge">-6%</span></a>
-          <a class="ditem" onclick="jcat('retail','kroger')"><div class="ditem-logo" style="background:#1b3a6b"><img src="https://logo.clearbit.com/kroger.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Kroger</div><div class="ditem-sub">$10–$100</div></div><span class="dbadge">-6%</span></a>
+          <a class="ditem" onclick="jcat('retail','walmart')"><div class="ditem-logo" style="background:linear-gradient(135deg,#004c97,#0071ce)"><img src="https://www.google.com/s2/favicons?domain=walmart.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Walmart</div><div class="ditem-sub">$10–$500</div></div><span class="dbadge">-6%</span></a>
+          <a class="ditem" onclick="jcat('retail','target')"><div class="ditem-logo" style="background:#cc0000"><img src="https://www.google.com/s2/favicons?domain=target.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Target</div><div class="ditem-sub">$10–$200</div></div><span class="dbadge">-6%</span></a>
+          <a class="ditem" onclick="jcat('retail','costco')"><div class="ditem-logo" style="background:#005daa"><img src="https://www.google.com/s2/favicons?domain=costco.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Costco</div><div class="ditem-sub">$25–$500</div></div><span class="dbadge">-6%</span></a>
+          <a class="ditem" onclick="jcat('retail','kroger')"><div class="ditem-logo" style="background:#1b3a6b"><img src="https://www.google.com/s2/favicons?domain=kroger.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Kroger</div><div class="ditem-sub">$10–$100</div></div><span class="dbadge">-6%</span></a>
         </div>
         <div><div class="drop-col-title"><span>🌍</span><span id="dc51">عالمي وخليجي</span></div>
-          <a class="ditem" onclick="jcat('retail','carrefour')"><div class="ditem-logo" style="background:#004a97"><img src="https://logo.clearbit.com/carrefour.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Carrefour</div><div class="ditem-sub">SAR / AED</div></div><span class="dbadge">-6%</span></a>
-          <a class="ditem" onclick="jcat('retail','noon')"><div class="ditem-logo" style="background:#feee00"><img src="https://logo.clearbit.com/noon.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Noon</div><div class="ditem-sub">UAE/KSA/EGY</div></div><span class="dbadge">-5%</span></a>
-          <a class="ditem" onclick="jcat('retail','lulu-hypermarket')"><div class="ditem-logo" style="background:#e63946"><img src="https://logo.clearbit.com/luluhypermarket.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">LuLu</div><div class="ditem-sub">AED</div></div><span class="dbadge">-5%</span></a>
-          <a class="ditem" onclick="jcat('retail','aliexpress')"><div class="ditem-logo" style="background:#ff4747"><img src="https://logo.clearbit.com/aliexpress.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">AliExpress</div><div class="ditem-sub">$10–$100</div></div><span class="dbadge">-6%</span></a>
+          <a class="ditem" onclick="jcat('retail','carrefour')"><div class="ditem-logo" style="background:#004a97"><img src="https://www.google.com/s2/favicons?domain=carrefour.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Carrefour</div><div class="ditem-sub">SAR / AED</div></div><span class="dbadge">-6%</span></a>
+          <a class="ditem" onclick="jcat('retail','noon')"><div class="ditem-logo" style="background:#feee00"><img src="https://www.google.com/s2/favicons?domain=noon.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Noon</div><div class="ditem-sub">UAE/KSA/EGY</div></div><span class="dbadge">-5%</span></a>
+          <a class="ditem" onclick="jcat('retail','lulu-hypermarket')"><div class="ditem-logo" style="background:#e63946"><img src="https://www.google.com/s2/favicons?domain=luluhypermarket.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">LuLu</div><div class="ditem-sub">AED</div></div><span class="dbadge">-5%</span></a>
+          <a class="ditem" onclick="jcat('retail','aliexpress')"><div class="ditem-logo" style="background:#ff4747"><img src="https://www.google.com/s2/favicons?domain=aliexpress.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">AliExpress</div><div class="ditem-sub">$10–$100</div></div><span class="dbadge">-6%</span></a>
         </div>
         <div><div class="drop-col-title"><span>🍔</span><span id="dc52">طعام ومطاعم</span></div>
-          <a class="ditem" onclick="jcat('food','starbucks')"><div class="ditem-logo" style="background:linear-gradient(135deg,#00704a,#008f5d)"><img src="https://logo.clearbit.com/starbucks.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Starbucks</div><div class="ditem-sub">$10–$50</div></div><span class="dbadge">-5%</span></a>
-          <a class="ditem" onclick="jcat('food','mcdonalds')"><div class="ditem-logo" style="background:linear-gradient(135deg,#da291c,#ffc72c)"><img src="https://logo.clearbit.com/mcdonalds.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">McDonald's</div><div class="ditem-sub">$10–$50</div></div><span class="dbadge">-6%</span></a>
-          <a class="ditem" onclick="jcat('food','ubereats')"><div class="ditem-logo" style="background:linear-gradient(135deg,#000,#06c167)"><img src="https://logo.clearbit.com/ubereats.com" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Uber Eats</div><div class="ditem-sub">$15–$100</div></div><span class="dbadge">-6%</span></a>
+          <a class="ditem" onclick="jcat('food','starbucks')"><div class="ditem-logo" style="background:linear-gradient(135deg,#00704a,#008f5d)"><img src="https://www.google.com/s2/favicons?domain=starbucks.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Starbucks</div><div class="ditem-sub">$10–$50</div></div><span class="dbadge">-5%</span></a>
+          <a class="ditem" onclick="jcat('food','mcdonalds')"><div class="ditem-logo" style="background:linear-gradient(135deg,#da291c,#ffc72c)"><img src="https://www.google.com/s2/favicons?domain=mcdonalds.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">McDonald's</div><div class="ditem-sub">$10–$50</div></div><span class="dbadge">-6%</span></a>
+          <a class="ditem" onclick="jcat('food','ubereats')"><div class="ditem-logo" style="background:linear-gradient(135deg,#000,#06c167)"><img src="https://www.google.com/s2/favicons?domain=ubereats.com&sz=128" onerror="this.style.display='none'"></div><div class="ditem-info"><div class="ditem-name">Uber Eats</div><div class="ditem-sub">$15–$100</div></div><span class="dbadge">-6%</span></a>
         </div>
       </div></div>
     </li>
@@ -1015,11 +1018,14 @@ const LOGOS={
   gateio:'gate.io','crypto-com':'crypto.com',bitget:'bitget.com',
   usdt:'tether.to',btc:'bitcoin.org',eth:'ethereum.org',
   bnb:'binance.com',sol:'solana.com',usdc:'circle.com',
-  xrp:'ripple.com','usdt-large':'tether.to',
+  paysafecard:'paysafe.com',bitsa:'bitsacard.com',cashlib:'cashlib.eu',
+  mifinity:'mifinity.com',transcash:'transcash.com',icash:'icash.one',
+  cryptovoucher:'crypto-voucher.com',giftmecrypto:'giftmecrypto.com',
+    xrp:'ripple.com','usdt-large':'tether.to',
 };
 function getLogo(id){
-  const d=LOGOS[id];
-  return d?'https://logo.clearbit.com/'+d:'https://www.google.com/s2/favicons?domain='+id+'.com&sz=128';
+  var d = LOGOS[id] || id+'.com';
+  return 'https://www.google.com/s2/favicons?domain='+d+'&sz=128';
 }
 
 /* ══════════════════════════════════════════
@@ -1027,27 +1033,27 @@ function getLogo(id){
 ══════════════════════════════════════════ */
 const P=[
   // GAMING
-  {id:'steam',reloadlyId:15803,cat:'game',name:{ar:'Steam Wallet',en:'Steam Wallet'},reg:{ar:'🌍 عالمي',en:'🌍 Global'},bg:'linear-gradient(145deg,#1b2838,#2a475e)',d:[{l:'$5',p:5.73,o:5},{l:'$10',p:11.17,o:10},{l:'$20',p:22.03,o:20},{l:'$50',p:54.63,o:50},{l:'$100',p:108.96,o:100}]},
-  {id:'psn',reloadlyId:15584,cat:'game',name:{ar:'PlayStation Network',en:'PlayStation Network'},reg:{ar:'🇺🇸 USA',en:'🇺🇸 USA'},bg:'linear-gradient(145deg,#003087,#0070d1)',d:[{l:'$10',p:11.17,o:10},{l:'$20',p:22.03,o:20},{l:'$50',p:54.63,o:50},{l:'$100',p:108.96,o:100}]},
-  {id:'xbox',reloadlyId:16061,cat:'game',name:{ar:'Xbox Gift Card',en:'Xbox Gift Card'},reg:{ar:'🌍 عالمي',en:'🌍 Global'},bg:'linear-gradient(145deg,#107c10,#52b043)',d:[{l:'$5',p:5.79,o:5},{l:'$10',p:11.28,o:10},{l:'$25',p:27.75,o:25},{l:'$50',p:55.2,o:50}]},
-  {id:'pubg',reloadlyId:15552,cat:'game',name:{ar:'PUBG Mobile UC',en:'PUBG Mobile UC'},reg:{ar:'🌍 عالمي',en:'🌍 Global'},bg:'linear-gradient(145deg,#1a1a1a,#f7a21b)',d:[{l:'60 UC',p:1.47,o:1},{l:'325 UC',p:5.79,o:5},{l:'660 UC',p:11.28,o:10},{l:'1800 UC',p:27.75,o:25}]},
-  {id:'roblox',cat:'game',name:{ar:'Roblox Gift Card',en:'Roblox Gift Card'},reg:{ar:'🌍 عالمي',en:'🌍 Global'},bg:'linear-gradient(145deg,#cc0000,#ff4444)',d:[{l:'$10',p:10.83,o:10},{l:'$25',p:26.62,o:25},{l:'$50',p:52.37,o:50}]},
-  {id:'fortnite',reloadlyId:17559,cat:'game',name:{ar:'Fortnite V-Bucks',en:'Fortnite V-Bucks'},reg:{ar:'🌍 عالمي',en:'🌍 Global'},bg:'linear-gradient(145deg,#1900ff,#00cfff)',d:[{l:'1000 V',p:9.07,o:7.99},{l:'2800 V',p:22.25,o:19.99},{l:'5000 V',p:38.77,o:34.99}]},
+  {id:'steam',rating:4.8,reviews:1205,reloadlyId:15803,cat:'game',name:{ar:'Steam Wallet',en:'Steam Wallet'},reg:{ar:'🌍 عالمي',en:'🌍 Global'},bg:'linear-gradient(145deg,#1b2838,#2a475e)',d:[{l:'$5',p:5.73,o:5},{l:'$10',p:11.17,o:10},{l:'$20',p:22.03,o:20},{l:'$50',p:54.63,o:50},{l:'$100',p:108.96,o:100}]},
+  {id:'psn',rating:4.7,reviews:892,reloadlyId:15584,cat:'game',name:{ar:'PlayStation Network',en:'PlayStation Network'},reg:{ar:'🇺🇸 USA',en:'🇺🇸 USA'},bg:'linear-gradient(145deg,#003087,#0070d1)',d:[{l:'$10',p:11.17,o:10},{l:'$20',p:22.03,o:20},{l:'$50',p:54.63,o:50},{l:'$100',p:108.96,o:100}]},
+  {id:'xbox',rating:4.6,reviews:654,reloadlyId:16061,cat:'game',name:{ar:'Xbox Gift Card',en:'Xbox Gift Card'},reg:{ar:'🌍 عالمي',en:'🌍 Global'},bg:'linear-gradient(145deg,#107c10,#52b043)',d:[{l:'$5',p:5.79,o:5},{l:'$10',p:11.28,o:10},{l:'$25',p:27.75,o:25},{l:'$50',p:55.2,o:50}]},
+  {id:'pubg',rating:4.4,reviews:987,reloadlyId:15552,cat:'game',name:{ar:'PUBG Mobile UC',en:'PUBG Mobile UC'},reg:{ar:'🌍 عالمي',en:'🌍 Global'},bg:'linear-gradient(145deg,#1a1a1a,#f7a21b)',d:[{l:'60 UC',p:1.47,o:1},{l:'325 UC',p:5.79,o:5},{l:'660 UC',p:11.28,o:10},{l:'1800 UC',p:27.75,o:25}]},
+  {id:'roblox',rating:4.3,reviews:876,cat:'game',name:{ar:'Roblox Gift Card',en:'Roblox Gift Card'},reg:{ar:'🌍 عالمي',en:'🌍 Global'},bg:'linear-gradient(145deg,#cc0000,#ff4444)',d:[{l:'$10',p:10.83,o:10},{l:'$25',p:26.62,o:25},{l:'$50',p:52.37,o:50}]},
+  {id:'fortnite',rating:4.5,reviews:1234,reloadlyId:17559,cat:'game',name:{ar:'Fortnite V-Bucks',en:'Fortnite V-Bucks'},reg:{ar:'🌍 عالمي',en:'🌍 Global'},bg:'linear-gradient(145deg,#1900ff,#00cfff)',d:[{l:'1000 V',p:9.07,o:7.99},{l:'2800 V',p:22.25,o:19.99},{l:'5000 V',p:38.77,o:34.99}]},
   {id:'nintendo',cat:'game',name:{ar:'Nintendo eShop',en:'Nintendo eShop'},reg:{ar:'🇺🇸 USA',en:'🇺🇸 USA'},bg:'linear-gradient(145deg,#e60012,#ff4444)',d:[{l:'$10',p:10.71,o:10},{l:'$20',p:21.13,o:20},{l:'$35',p:36.75,o:35},{l:'$50',p:52.37,o:50}]},
   {id:'razer',cat:'game',name:{ar:'Razer Gold',en:'Razer Gold'},reg:{ar:'🌍 عالمي',en:'🌍 Global'},bg:'linear-gradient(145deg,#000,#00c800)',d:[{l:'$5',p:5.39,o:5},{l:'$10',p:10.49,o:10},{l:'$25',p:25.77,o:25}]},
   {id:'freefire',cat:'game',name:{ar:'Free Fire Diamonds',en:'Free Fire Diamonds'},reg:{ar:'🌍 عالمي',en:'🌍 Global'},bg:'linear-gradient(145deg,#1a0a2e,#ff4500)',d:[{l:'100💎',p:1.49,o:1.09},{l:'310💎',p:3.57,o:3.19},{l:'520💎',p:5.68,o:5.29},{l:'1060💎',p:10.71,o:10.49}]},
   {id:'ea',cat:'game',name:{ar:'EA Play',en:'EA Play'},reg:{ar:'🌍 عالمي',en:'🌍 Global'},bg:'linear-gradient(145deg,#ff4500,#ff6a00)',d:[{l:'1 شهر',p:4.94,o:4.99},{l:'12 شهر',p:34.25,o:35.99}]},
   {id:'yalla-ludo',cat:'game',name:{ar:'Yalla Ludo Diamonds',en:'Yalla Ludo Diamonds'},reg:{ar:'🌍 عالمي',en:'🌍 Global'},bg:'linear-gradient(145deg,#4a0072,#ff4d00)',d:[{l:'50💎',p:1.38,o:0.99},{l:'100💎',p:2.28,o:1.99},{l:'300💎',p:5.95,o:5.49},{l:'600💎',p:11.05,o:10.99},{l:'1200💎',p:21.24,o:21.99}]},
   // GIFT
-  {id:'amazon',reloadlyId:5,cat:'gift',name:{ar:'Amazon Gift Card',en:'Amazon Gift Card'},reg:{ar:'🇺🇸 USA',en:'🇺🇸 USA'},bg:'linear-gradient(145deg,#131921,#ff9900)',d:[{l:'$10',p:11.28,o:10},{l:'$25',p:27.75,o:25},{l:'$50',p:55.2,o:50},{l:'$100',p:110.09,o:100},{l:'$200',p:219.89,o:200}]},
-  {id:'google',reloadlyId:3941,cat:'gift',name:{ar:'Google Play',en:'Google Play'},reg:{ar:'🌍 عالمي',en:'🌍 Global'},bg:'linear-gradient(145deg,#01875f,#4285f4)',d:[{l:'$5',p:5.79,o:5},{l:'$10',p:11.28,o:10},{l:'$25',p:27.75,o:25},{l:'$50',p:55.2,o:50},{l:'$100',p:110.09,o:100}]},
+  {id:'amazon',rating:4.9,reviews:2341,reloadlyId:5,cat:'gift',name:{ar:'Amazon Gift Card',en:'Amazon Gift Card'},reg:{ar:'🇺🇸 USA',en:'🇺🇸 USA'},bg:'linear-gradient(145deg,#131921,#ff9900)',d:[{l:'$10',p:11.28,o:10},{l:'$25',p:27.75,o:25},{l:'$50',p:55.2,o:50},{l:'$100',p:110.09,o:100},{l:'$200',p:219.89,o:200}]},
+  {id:'google',rating:4.7,reviews:1102,reloadlyId:3941,cat:'gift',name:{ar:'Google Play',en:'Google Play'},reg:{ar:'🌍 عالمي',en:'🌍 Global'},bg:'linear-gradient(145deg,#01875f,#4285f4)',d:[{l:'$5',p:5.79,o:5},{l:'$10',p:11.28,o:10},{l:'$25',p:27.75,o:25},{l:'$50',p:55.2,o:50},{l:'$100',p:110.09,o:100}]},
   {id:'apple',cat:'gift',name:{ar:'App Store & iTunes',en:'App Store & iTunes'},reg:{ar:'🇺🇸 USA',en:'🇺🇸 USA'},bg:'linear-gradient(145deg,#1c1c1e,#3a3a3c)',d:[{l:'$10',p:10.83,o:10},{l:'$15',p:16.15,o:15},{l:'$25',p:26.62,o:25},{l:'$50',p:52.93,o:50},{l:'$100',p:105.57,o:100}]},
-  {id:'netflix',reloadlyId:18681,cat:'gift',name:{ar:'Netflix Gift Card',en:'Netflix Gift Card'},reg:{ar:'🇺🇸 USA',en:'🇺🇸 USA'},bg:'linear-gradient(145deg,#141414,#e50914)',d:[{l:'$15',p:16.77,o:15},{l:'$30',p:33.24,o:30},{l:'$60',p:66.18,o:60},{l:'$100',p:110.09,o:100}]},
+  {id:'netflix',rating:4.5,reviews:743,reloadlyId:18681,cat:'gift',name:{ar:'Netflix Gift Card',en:'Netflix Gift Card'},reg:{ar:'🇺🇸 USA',en:'🇺🇸 USA'},bg:'linear-gradient(145deg,#141414,#e50914)',d:[{l:'$15',p:16.77,o:15},{l:'$30',p:33.24,o:30},{l:'$60',p:66.18,o:60},{l:'$100',p:110.09,o:100}]},
   {id:'ebay',reloadlyId:2,cat:'gift',name:{ar:'eBay Gift Card',en:'eBay Gift Card'},reg:{ar:'🇺🇸 USA',en:'🇺🇸 USA'},bg:'linear-gradient(145deg,#e53238,#0064d2)',d:[{l:'$25',p:27.75,o:25},{l:'$50',p:55.2,o:50},{l:'$100',p:110.09,o:100},{l:'$200',p:219.89,o:200}]},
-  {id:'spotify',cat:'gift',name:{ar:'Spotify Gift Card',en:'Spotify Gift Card'},reg:{ar:'🇺🇸 USA',en:'🇺🇸 USA'},bg:'linear-gradient(145deg,#121212,#1db954)',d:[{l:'$10',p:11.05,o:10},{l:'$30',p:32.56,o:30},{l:'$60',p:64.82,o:60}]},
+  {id:'spotify',rating:4.6,reviews:521,cat:'gift',name:{ar:'Spotify Gift Card',en:'Spotify Gift Card'},reg:{ar:'🇺🇸 USA',en:'🇺🇸 USA'},bg:'linear-gradient(145deg,#121212,#1db954)',d:[{l:'$10',p:11.05,o:10},{l:'$30',p:32.56,o:30},{l:'$60',p:64.82,o:60}]},
   // PREPAID
-  {id:'visa',cat:'prepaid',name:{ar:'Visa Prepaid',en:'Visa Prepaid'},reg:{ar:'🌍 عالمي',en:'🌍 Global'},bg:'linear-gradient(145deg,#1a1f71,#0057b7)',d:[{l:'$10',p:12.18,o:11},{l:'$25',p:29.73,o:27},{l:'$50',p:58.59,o:53.5},{l:'$100',p:115.75,o:106},{l:'$200',p:230.08,o:211}]},
-  {id:'mc',cat:'prepaid',name:{ar:'Mastercard Prepaid',en:'Mastercard Prepaid'},reg:{ar:'🌍 عالمي',en:'🌍 Global'},bg:'linear-gradient(145deg,#252525,#eb001b)',d:[{l:'$10',p:12.18,o:11},{l:'$25',p:30.01,o:27.5},{l:'$50',p:59.16,o:54.5},{l:'$100',p:116.89,o:107},{l:'$250',p:290.07,o:265}]},
+  {id:'visa',rating:4.5,reviews:234,cat:'prepaid',name:{ar:'Visa Prepaid',en:'Visa Prepaid'},reg:{ar:'🌍 عالمي',en:'🌍 Global'},bg:'linear-gradient(145deg,#1a1f71,#0057b7)',d:[{l:'$10',p:12.18,o:11},{l:'$25',p:29.73,o:27},{l:'$50',p:58.59,o:53.5},{l:'$100',p:115.75,o:106},{l:'$200',p:230.08,o:211}]},
+  {id:'mc',rating:4.4,reviews:198,cat:'prepaid',name:{ar:'Mastercard Prepaid',en:'Mastercard Prepaid'},reg:{ar:'🌍 عالمي',en:'🌍 Global'},bg:'linear-gradient(145deg,#252525,#eb001b)',d:[{l:'$10',p:12.18,o:11},{l:'$25',p:30.01,o:27.5},{l:'$50',p:59.16,o:54.5},{l:'$100',p:116.89,o:107},{l:'$250',p:290.07,o:265}]},
   {id:'amex',cat:'prepaid',name:{ar:'American Express',en:'American Express'},reg:{ar:'🌍 عالمي',en:'🌍 Global'},bg:'linear-gradient(145deg,#007bc1,#00a3e0)',d:[{l:'$25',p:29.73,o:27},{l:'$50',p:58.59,o:53.5},{l:'$100',p:116.89,o:107},{l:'$200',p:232.34,o:213}]},
   {id:'astropay',cat:'prepaid',name:{ar:'AstroPay / ICash',en:'AstroPay / ICash'},reg:{ar:'🌍 عالمي',en:'🌍 Global'},bg:'linear-gradient(145deg,#003087,#009cde)',d:[{l:'$10',p:11.05,o:10},{l:'$25',p:27.18,o:25},{l:'$50',p:54.07,o:50},{l:'$100',p:107.83,o:100}]},
   {id:'visa-gift',cat:'prepaid',name:{ar:'Visa Gift Prepaid',en:'Visa Gift Prepaid'},reg:{ar:'🇺🇸 USA',en:'🇺🇸 USA'},bg:'linear-gradient(145deg,#1a1f71,#0057b7)',d:[{l:'$10',p:12.52,o:11.5},{l:'$25',p:30.3,o:28},{l:'$50',p:59.72,o:55},{l:'$100',p:118.02,o:109}]},
@@ -1059,13 +1065,13 @@ const P=[
   {id:'flexepin',cat:'prepaid',name:{ar:'Flexepin',en:'Flexepin'},reg:{ar:'🇨🇦 Canada/EU',en:'🇨🇦 Canada/EU'},bg:'linear-gradient(145deg,#003066,#0080ff)',d:[{l:'$10',p:11.05,o:10},{l:'$20',p:21.81,o:20},{l:'$50',p:54.07,o:50},{l:'$100',p:107.83,o:100}]},
   {id:'flexepin-eur',cat:'prepaid',name:{ar:'Flexepin EUR',en:'Flexepin EUR'},reg:{ar:'🇪🇺 Europe',en:'🇪🇺 Europe'},bg:'linear-gradient(145deg,#001a4d,#0066cc)',d:[{l:'€10',p:11.05,o:10},{l:'€25',p:27.18,o:25},{l:'€50',p:54.07,o:50},{l:'€100',p:107.83,o:100}]},
   // HOME
-  {id:'ikea',cat:'home',name:{ar:'IKEA Gift Card',en:'IKEA Gift Card'},reg:{ar:'🌍 عالمي',en:'🌍 Global'},bg:'linear-gradient(145deg,#0051a2,#ffda1a)',d:[{l:'€25',p:26.9,o:25},{l:'€50',p:53.5,o:50},{l:'€100',p:106.7,o:100},{l:'€150',p:159.9,o:150},{l:'€250',p:266.3,o:250}]},
+  {id:'ikea',rating:4.5,reviews:312,cat:'home',name:{ar:'IKEA Gift Card',en:'IKEA Gift Card'},reg:{ar:'🌍 عالمي',en:'🌍 Global'},bg:'linear-gradient(145deg,#0051a2,#ffda1a)',d:[{l:'€25',p:26.9,o:25},{l:'€50',p:53.5,o:50},{l:'€100',p:106.7,o:100},{l:'€150',p:159.9,o:150},{l:'€250',p:266.3,o:250}]},
   {id:'wayfair',cat:'home',name:{ar:'Wayfair Gift Card',en:'Wayfair Gift Card'},reg:{ar:'🇺🇸 USA',en:'🇺🇸 USA'},bg:'linear-gradient(145deg,#7b2d8b,#a044b0)',d:[{l:'$25',p:26.9,o:25},{l:'$50',p:53.5,o:50},{l:'$100',p:106.7,o:100}]},
   {id:'homebase',cat:'home',name:{ar:'Home Depot Card',en:'Home Depot Card'},reg:{ar:'🇺🇸 USA',en:'🇺🇸 USA'},bg:'linear-gradient(145deg,#f96302,#ff8c00)',d:[{l:'$25',p:26.9,o:25},{l:'$50',p:53.5,o:50},{l:'$100',p:106.7,o:100},{l:'$200',p:213.1,o:200}]},
   // FASHION
   {id:'zara',cat:'fashion',name:{ar:'Zara Gift Card',en:'Zara Gift Card'},reg:{ar:'🌍 عالمي',en:'🌍 Global'},bg:'linear-gradient(145deg,#000,#2d2d2d)',d:[{l:'€20',p:21.58,o:20},{l:'€50',p:53.5,o:50},{l:'€100',p:106.7,o:100}]},
   {id:'hm',cat:'fashion',name:{ar:'H&M Gift Card',en:'H&M Gift Card'},reg:{ar:'🌍 عالمي',en:'🌍 Global'},bg:'linear-gradient(145deg,#cc0000,#e50000)',d:[{l:'€20',p:21.35,o:20},{l:'€50',p:52.93,o:50},{l:'€100',p:105.57,o:100}]},
-  {id:'nike',cat:'fashion',name:{ar:'Nike Gift Card',en:'Nike Gift Card'},reg:{ar:'🇺🇸 USA',en:'🇺🇸 USA'},bg:'linear-gradient(145deg,#111,#333)',d:[{l:'$25',p:26.62,o:25},{l:'$50',p:52.93,o:50},{l:'$100',p:105.57,o:100}]},
+  {id:'nike',rating:4.4,reviews:445,cat:'fashion',name:{ar:'Nike Gift Card',en:'Nike Gift Card'},reg:{ar:'🇺🇸 USA',en:'🇺🇸 USA'},bg:'linear-gradient(145deg,#111,#333)',d:[{l:'$25',p:26.62,o:25},{l:'$50',p:52.93,o:50},{l:'$100',p:105.57,o:100}]},
   {id:'adidas',cat:'fashion',name:{ar:'Adidas Gift Card',en:'Adidas Gift Card'},reg:{ar:'🇺🇸 USA',en:'🇺🇸 USA'},bg:'linear-gradient(145deg,#000,#222)',d:[{l:'$25',p:26.62,o:25},{l:'$50',p:52.93,o:50},{l:'$100',p:105.57,o:100}]},
   {id:'uniqlo',cat:'fashion',name:{ar:'Uniqlo Gift Card',en:'Uniqlo Gift Card'},reg:{ar:'🇯🇵 Japan/Global',en:'🇯🇵 Japan/Global'},bg:'linear-gradient(145deg,#cc0000,#ff0000)',d:[{l:'¥1000',p:7.66,o:7},{l:'¥3000',p:22.37,o:21},{l:'¥5000',p:36.52,o:35}]},
   {id:'asos',cat:'fashion',name:{ar:'ASOS Gift Card',en:'ASOS Gift Card'},reg:{ar:'🇬🇧 UK',en:'🇬🇧 UK'},bg:'linear-gradient(145deg,#2c2c2c,#2a6ebb)',d:[{l:'£10',p:10.94,o:10},{l:'£25',p:26.9,o:25},{l:'£50',p:53.5,o:50},{l:'£100',p:106.7,o:100}]},
@@ -1085,12 +1091,12 @@ const P=[
   {id:'apple-store',cat:'electronics',name:{ar:'Apple Store Card',en:'Apple Store Card'},reg:{ar:'🇺🇸 USA',en:'🇺🇸 USA'},bg:'linear-gradient(145deg,#1c1c1e,#3a3a3c)',d:[{l:'$25',p:26.62,o:25},{l:'$50',p:52.93,o:50},{l:'$100',p:105.57,o:100},{l:'$200',p:210.83,o:200}]},
   {id:'currys',cat:'electronics',name:{ar:'Currys Gift Card',en:'Currys Gift Card'},reg:{ar:'🇬🇧 UK',en:'🇬🇧 UK'},bg:'linear-gradient(145deg,#5c2d91,#7b3fb5)',d:[{l:'£10',p:10.94,o:10},{l:'£25',p:26.9,o:25},{l:'£50',p:53.5,o:50}]},
   // FOOD
-  {id:'starbucks',reloadlyId:18287,cat:'food',name:{ar:'Starbucks Card',en:'Starbucks Card'},reg:{ar:'🌍 عالمي',en:'🌍 Global'},bg:'linear-gradient(145deg,#00704a,#008f5d)',d:[{l:'$10',p:11.28,o:10},{l:'$15',p:16.77,o:15},{l:'$25',p:27.75,o:25},{l:'$50',p:55.2,o:50}]},
+  {id:'starbucks',rating:4.7,reviews:654,reloadlyId:18287,cat:'food',name:{ar:'Starbucks Card',en:'Starbucks Card'},reg:{ar:'🌍 عالمي',en:'🌍 Global'},bg:'linear-gradient(145deg,#00704a,#008f5d)',d:[{l:'$10',p:11.28,o:10},{l:'$15',p:16.77,o:15},{l:'$25',p:27.75,o:25},{l:'$50',p:55.2,o:50}]},
   {id:'mcdonalds',cat:'food',name:{ar:"McDonald's Card",en:"McDonald's Card"},reg:{ar:'🇺🇸 USA',en:'🇺🇸 USA'},bg:'linear-gradient(145deg,#da291c,#ffc72c)',d:[{l:'$10',p:10.94,o:10},{l:'$20',p:21.58,o:20},{l:'$50',p:53.5,o:50}]},
   {id:'ubereats',cat:'food',name:{ar:'Uber Eats Card',en:'Uber Eats Card'},reg:{ar:'🌍 عالمي',en:'🌍 Global'},bg:'linear-gradient(145deg,#000,#06c167)',d:[{l:'$15',p:16.26,o:15},{l:'$25',p:26.9,o:25},{l:'$50',p:53.5,o:50}]},
   {id:'deliveroo',cat:'food',name:{ar:'Deliveroo Card',en:'Deliveroo Card'},reg:{ar:'🇬🇧 UK/Europe',en:'🇬🇧 UK/Europe'},bg:'linear-gradient(145deg,#00948a,#00ccbc)',d:[{l:'£10',p:10.94,o:10},{l:'£25',p:26.9,o:25},{l:'£50',p:53.5,o:50}]},
   // RETAIL
-  {id:'walmart',cat:'retail',name:{ar:'Walmart Gift Card',en:'Walmart Gift Card'},reg:{ar:'🇺🇸 USA',en:'🇺🇸 USA'},bg:'linear-gradient(145deg,#004c97,#0071ce)',d:[{l:'$10',p:10.94,o:10},{l:'$25',p:26.9,o:25},{l:'$50',p:53.5,o:50},{l:'$100',p:106.7,o:100},{l:'$200',p:213.1,o:200}]},
+  {id:'walmart',rating:4.3,reviews:567,cat:'retail',name:{ar:'Walmart Gift Card',en:'Walmart Gift Card'},reg:{ar:'🇺🇸 USA',en:'🇺🇸 USA'},bg:'linear-gradient(145deg,#004c97,#0071ce)',d:[{l:'$10',p:10.94,o:10},{l:'$25',p:26.9,o:25},{l:'$50',p:53.5,o:50},{l:'$100',p:106.7,o:100},{l:'$200',p:213.1,o:200}]},
   {id:'target',reloadlyId:12740,cat:'retail',name:{ar:'Target Gift Card',en:'Target Gift Card'},reg:{ar:'🇺🇸 USA',en:'🇺🇸 USA'},bg:'linear-gradient(145deg,#7f0000,#cc0000)',d:[{l:'$10',p:11.28,o:10},{l:'$25',p:27.75,o:25},{l:'$50',p:55.2,o:50},{l:'$100',p:110.09,o:100}]},
   {id:'costco',cat:'retail',name:{ar:'Costco Shop Card',en:'Costco Shop Card'},reg:{ar:'🇺🇸 USA/Canada',en:'🇺🇸 USA/Canada'},bg:'linear-gradient(145deg,#003d73,#005daa)',d:[{l:'$25',p:26.9,o:25},{l:'$50',p:53.5,o:50},{l:'$100',p:106.7,o:100},{l:'$200',p:213.1,o:200}]},
   {id:'kroger',cat:'retail',name:{ar:'Kroger Gift Card',en:'Kroger Gift Card'},reg:{ar:'🇺🇸 USA',en:'🇺🇸 USA'},bg:'linear-gradient(145deg,#0f2040,#1b3a6b)',d:[{l:'$10',p:10.94,o:10},{l:'$25',p:26.9,o:25},{l:'$50',p:53.5,o:50}]},
@@ -1099,7 +1105,7 @@ const P=[
   {id:'lulu-hypermarket',cat:'retail',name:{ar:'LuLu Hypermarket',en:'LuLu Hypermarket'},reg:{ar:'🇦🇪 UAE/Gulf',en:'🇦🇪 UAE/Gulf'},bg:'linear-gradient(145deg,#a00020,#e63946)',d:[{l:'50 AED',p:15.01,o:13.6},{l:'100 AED',p:29.73,o:27.2},{l:'200 AED',p:59.16,o:54.4}]},
   {id:'aliexpress',cat:'retail',name:{ar:'AliExpress Card',en:'AliExpress Card'},reg:{ar:'🌍 عالمي',en:'🌍 Global'},bg:'linear-gradient(145deg,#cc0000,#ff4747)',d:[{l:'$10',p:10.94,o:10},{l:'$25',p:26.9,o:25},{l:'$50',p:53.5,o:50}]},
   // CRYPTO
-  {id:'binance',cat:'crypto',name:{ar:'Binance Gift Card',en:'Binance Gift Card'},reg:{ar:'🌍 BNB/USDT',en:'🌍 BNB/USDT'},bg:'linear-gradient(145deg,#1a1208,#f3ba2f)',d:[{l:'$10',p:11.39,o:10},{l:'$25',p:28.03,o:25},{l:'$50',p:55.76,o:50},{l:'$100',p:111.23,o:100},{l:'$200',p:222.15,o:200}]},
+  {id:'binance',rating:4.4,reviews:432,cat:'crypto',name:{ar:'Binance Gift Card',en:'Binance Gift Card'},reg:{ar:'🌍 BNB/USDT',en:'🌍 BNB/USDT'},bg:'linear-gradient(145deg,#1a1208,#f3ba2f)',d:[{l:'$10',p:11.39,o:10},{l:'$25',p:28.03,o:25},{l:'$50',p:55.76,o:50},{l:'$100',p:111.23,o:100},{l:'$200',p:222.15,o:200}]},
   {id:'binance-usdc',cat:'crypto',name:{ar:'Binance USDC',en:'Binance USDC'},reg:{ar:'🌍 USDC',en:'🌍 USDC'},bg:'linear-gradient(145deg,#1a1a2e,#2775ca)',d:[{l:'$10',p:11.51,o:10},{l:'$25',p:28.31,o:25},{l:'$50',p:56.33,o:50},{l:'$100',p:112.36,o:100}]},
   {id:'binance-euri',cat:'crypto',name:{ar:'Binance EURI',en:'Binance EURI'},reg:{ar:'🇪🇺 EURI',en:'🇪🇺 EURI'},bg:'linear-gradient(145deg,#1a1208,#003580)',d:[{l:'€10',p:11.51,o:10},{l:'€25',p:28.31,o:25},{l:'€50',p:56.33,o:50},{l:'€100',p:112.36,o:100}]},
   {id:'bybit',cat:'crypto',name:{ar:'Bybit Voucher',en:'Bybit Voucher'},reg:{ar:'🌍 USDT',en:'🌍 USDT'},bg:'linear-gradient(145deg,#0d0d1a,#f7a600)',d:[{l:'$10',p:11.39,o:10},{l:'$25',p:28.03,o:25},{l:'$50',p:55.76,o:50},{l:'$100',p:111.23,o:100}]},
@@ -1109,14 +1115,23 @@ const P=[
   {id:'gateio',cat:'crypto',name:{ar:'Gate.io Voucher',en:'Gate.io Voucher'},reg:{ar:'🌍 USDT',en:'🌍 USDT'},bg:'linear-gradient(145deg,#0b1426,#00b897)',d:[{l:'$10',p:11.39,o:10},{l:'$25',p:28.03,o:25},{l:'$50',p:55.76,o:50}]},
   {id:'crypto-com',cat:'crypto',name:{ar:'Crypto.com Card',en:'Crypto.com Card'},reg:{ar:'🌍 CRO',en:'🌍 CRO'},bg:'linear-gradient(145deg,#001650,#1199fa)',d:[{l:'$25',p:28.03,o:25},{l:'$50',p:55.76,o:50},{l:'$100',p:111.23,o:100}]},
   {id:'bitget',cat:'crypto',name:{ar:'Bitget Voucher',en:'Bitget Voucher'},reg:{ar:'🌍 USDT',en:'🌍 USDT'},bg:'linear-gradient(145deg,#0a0e1a,#00f0ff)',d:[{l:'$10',p:11.39,o:10},{l:'$25',p:28.03,o:25},{l:'$50',p:55.76,o:50}]},
-  {id:'usdt',cat:'crypto',name:{ar:'USDT Voucher',en:'USDT Voucher'},reg:{ar:'🌍 TRC20/ERC20',en:'🌍 TRC20/ERC20'},bg:'linear-gradient(145deg,#0d2818,#26a17b)',d:[{l:'$10',p:11.62,o:10},{l:'$25',p:28.6,o:25},{l:'$50',p:56.9,o:50},{l:'$100',p:113.49,o:100},{l:'$500',p:566.25,o:500}]},
+  {id:'usdt',rating:4.6,reviews:321,cat:'crypto',name:{ar:'USDT Voucher',en:'USDT Voucher'},reg:{ar:'🌍 TRC20/ERC20',en:'🌍 TRC20/ERC20'},bg:'linear-gradient(145deg,#0d2818,#26a17b)',d:[{l:'$10',p:11.62,o:10},{l:'$25',p:28.6,o:25},{l:'$50',p:56.9,o:50},{l:'$100',p:113.49,o:100},{l:'$500',p:566.25,o:500}]},
   {id:'btc',cat:'crypto',name:{ar:'Bitcoin BTC',en:'Bitcoin BTC'},reg:{ar:'🌍 Bitcoin',en:'🌍 Bitcoin'},bg:'linear-gradient(145deg,#1a0d00,#f7931a)',d:[{l:'$25',p:28.6,o:25},{l:'$50',p:56.9,o:50},{l:'$100',p:113.49,o:100},{l:'$250',p:283.27,o:250}]},
   {id:'eth',cat:'crypto',name:{ar:'Ethereum ETH',en:'Ethereum ETH'},reg:{ar:'🌍 ERC20',en:'🌍 ERC20'},bg:'linear-gradient(145deg,#0d1435,#627eea)',d:[{l:'$25',p:28.6,o:25},{l:'$50',p:56.9,o:50},{l:'$100',p:113.49,o:100}]},
   {id:'bnb',cat:'crypto',name:{ar:'BNB Coin',en:'BNB Coin'},reg:{ar:'🌍 BSC',en:'🌍 BSC'},bg:'linear-gradient(145deg,#1a1000,#f3ba2f)',d:[{l:'$25',p:28.6,o:25},{l:'$50',p:56.9,o:50},{l:'$100',p:113.49,o:100}]},
   {id:'sol',cat:'crypto',name:{ar:'Solana SOL',en:'Solana SOL'},reg:{ar:'🌍 Solana',en:'🌍 Solana'},bg:'linear-gradient(145deg,#1a0040,#9945ff)',d:[{l:'$25',p:28.6,o:25},{l:'$50',p:56.9,o:50},{l:'$100',p:113.49,o:100}]},
   {id:'usdc',cat:'crypto',name:{ar:'USDC Voucher',en:'USDC Voucher'},reg:{ar:'🌍 Circle',en:'🌍 Circle'},bg:'linear-gradient(145deg,#0a1f45,#2775ca)',d:[{l:'$10',p:11.62,o:10},{l:'$25',p:28.6,o:25},{l:'$50',p:56.9,o:50},{l:'$100',p:113.49,o:100}]},
   {id:'xrp',cat:'crypto',name:{ar:'XRP Ripple',en:'XRP Ripple'},reg:{ar:'🌍 Ripple',en:'🌍 Ripple'},bg:'linear-gradient(145deg,#001a2e,#00aae4)',d:[{l:'$25',p:28.6,o:25},{l:'$50',p:56.9,o:50},{l:'$100',p:113.49,o:100}]},
-];
+
+  // ── NEW PRODUCTS (from dundle / baxity) ──
+  {id:'paysafecard',cat:'prepaid',rating:4.5,reviews:617,name:{ar:'PaysafeCard',en:'PaysafeCard'},reg:{ar:'🇳🇴 النرويج',en:'🇳🇴 Norway'},bg:'linear-gradient(145deg,#003087,#0070d1)',d:[{l:'€10',p:12.3,o:10},{l:'€25',p:30.8,o:25},{l:'€50',p:61.6,o:50},{l:'€100',p:123.2,o:100}]},
+  {id:'bitsa',cat:'prepaid',rating:3.5,reviews:21,name:{ar:'Bitsa Visa Voucher',en:'Bitsa Visa Voucher'},reg:{ar:'🌍 عالمي',en:'🌍 Global'},bg:'linear-gradient(145deg,#f7901e,#ff6b00)',d:[{l:'€10',p:12.3,o:10},{l:'€25',p:30.8,o:25},{l:'€50',p:61.6,o:50}]},
+  {id:'cashlib',cat:'prepaid',rating:4.3,reviews:169,name:{ar:'CASHlib Voucher',en:'CASHlib Voucher'},reg:{ar:'🌍 عالمي',en:'🌍 Global'},bg:'linear-gradient(145deg,#1a237e,#283593)',d:[{l:'€10',p:12.3,o:10},{l:'€20',p:24.6,o:20},{l:'€50',p:61.6,o:50},{l:'€100',p:123.2,o:100}]},
+  {id:'mifinity',cat:'prepaid',rating:4.1,reviews:8,name:{ar:'MiFinity eVoucher',en:'MiFinity eVoucher'},reg:{ar:'🌍 عالمي',en:'🌍 Global'},bg:'linear-gradient(145deg,#6200ea,#9c27b0)',d:[{l:'€10',p:12.3,o:10},{l:'€25',p:30.8,o:25},{l:'€50',p:61.6,o:50},{l:'€100',p:123.2,o:100}]},
+  {id:'transcash',cat:'prepaid',rating:4.0,reviews:32,name:{ar:'Transcash Voucher',en:'Transcash Voucher'},reg:{ar:'🌍 عالمي',en:'🌍 Global'},bg:'linear-gradient(145deg,#b71c1c,#e53935)',d:[{l:'€10',p:12.3,o:10},{l:'€30',p:37,o:30},{l:'€50',p:61.6,o:50}]},
+  {id:'icash',cat:'prepaid',rating:4.2,reviews:45,name:{ar:'iCash Voucher',en:'iCash Voucher'},reg:{ar:'🌍 عالمي',en:'🌍 Global'},bg:'linear-gradient(145deg,#1a1a2e,#e63946)',d:[{l:'€10',p:12.3,o:10},{l:'€25',p:30.8,o:25},{l:'€50',p:61.6,o:50}]},
+  {id:'cryptovoucher',cat:'crypto',rating:4.3,reviews:71,name:{ar:'Crypto Voucher',en:'Crypto Voucher'},reg:{ar:'🌍 عالمي',en:'🌍 Global'},bg:'linear-gradient(145deg,#1a0040,#9945ff)',d:[{l:'€25',p:30.8,o:25},{l:'€50',p:61.6,o:50},{l:'€100',p:123.2,o:100}]},
+  {id:'giftmecrypto',cat:'crypto',rating:2.0,reviews:0,name:{ar:'Gift Me Crypto',en:'Gift Me Crypto'},reg:{ar:'🌍 عالمي',en:'🌍 Global'},bg:'linear-gradient(145deg,#00796b,#00bfa5)',d:[{l:'€25',p:30.8,o:25},{l:'€50',p:61.6,o:50},{l:'€100',p:123.2,o:100}]},];
 
 /* ══════════════════════════════════════════
    PAYMENT METHODS
@@ -1268,6 +1283,13 @@ function closeCart(){g('cartOv').classList.remove('open');g('cartDr').classList.
 ══════════════════════════════════════════ */
 function goCheckout(){
   if(!cart.length)return;
+  // Require login before checkout
+  if(!_authToken){
+    closeCart();
+    toast(lang==='ar'?'🔐 يرجى تسجيل الدخول أولاً':'🔐 Please sign in to continue');
+    setTimeout(function(){ openAuth('login'); }, 300);
+    return;
+  }
   closeCart();ckStep=1;selPM=null;
   buildCkSummary();buildPmGrid();showCkStep(1);
   g('ckModal').classList.add('open');
@@ -1361,7 +1383,20 @@ async function buildPmDetails(){
 }
 
 async function completeOrder(){
-  var recipientEmail = currentUser ? currentUser.email : (g('stripe-email') ? g('stripe-email').value.trim() : '');
+  // Extract email: JWT token → currentUser → stripe form
+  var recipientEmail = '';
+  if(currentUser && currentUser.email) {
+    recipientEmail = currentUser.email;
+  } else if(_authToken) {
+    try{
+      var _tp=_authToken.split('.');
+      if(_tp.length===3){
+        var _pl=JSON.parse(atob(_tp[1].replace(/-/g,'+').replace(/_/g,'/')));
+        recipientEmail=_pl.email||'';
+      }
+    }catch(e){}
+  }
+  if(!recipientEmail && g('stripe-email')) recipientEmail = g('stripe-email').value.trim();
   if(!recipientEmail){toast(lang==='ar'?'\u26a0\ufe0f \u064a\u0631\u062c\u0649 \u062a\u0633\u062c\u064a\u0644 \u0627\u0644\u062f\u062e\u0648\u0644 \u0623\u0648\u0644\u0627\u064b':'\u26a0\ufe0f Please login first');return;}
   var btn=g('ck-n3');
   if(btn){btn.disabled=true;btn.textContent=lang==='ar'?'\u062c\u0627\u0631\u064d \u0627\u0644\u062a\u062d\u0642\u0642...':'Checking...';}
@@ -1923,6 +1958,16 @@ function matchSearch(p, q) {
   return false;
 }
 
+/* ── STAR RATING BUILDER ─── */
+function buildStars(rating, reviews) {
+  var full=Math.floor(rating), half=(rating-full)>=0.5, empty=5-full-(half?1:0), h='';
+  for(var i=0;i<full;i++)  h+='<span style="color:#ffbe00;font-size:10px;">★</span>';
+  if(half)                 h+='<span style="color:#c89600;font-size:10px;">★</span>';
+  for(var i=0;i<empty;i++) h+='<span style="color:#3a3c5a;font-size:10px;">★</span>';
+  if(reviews) h+='<span style="font-size:10px;color:var(--sub);margin-inline-start:3px;">('+reviews+')</span>';
+  return h;
+}
+
 /* ── RENDER PRODUCTS (full override) ─── */
 function renderProducts() {
   var grid = document.getElementById('pgrid');
@@ -2029,6 +2074,8 @@ function renderProducts() {
       +'<div class="pc-body">'
         +'<div class="pc-name">'+nm+'</div>'
         +'<div class="pc-reg">'+p.reg[lang]+'</div>'
+        +(p.rating ? '<div class="pc-stars">'+buildStars(p.rating,p.reviews)+'</div>' : '')
+        +'<div style="font-size:10px;font-weight:700;color:var(--accent3);margin-bottom:6px;">⚡ '+(lang==='ar'?'تسليم فوري':'Instant Delivery')+'</div>'
         +'<div class="denoms">'+dens+'</div>'
         +'<div class="pc-pr-row">'
           +'<div>'
