@@ -293,6 +293,13 @@ nav{position:sticky;top:0;z-index:150;background:rgba(7,8,15,.92);backdrop-filte
 @media(max-width:640px){nav{padding:0 12px;gap:8px;}.nav-cats{display:none;}.hero{padding:48px 16px 32px;}.sec{padding:0 14px;}.steps{grid-template-columns:1fr;}.frow{grid-template-columns:1fr;}footer{flex-direction:column;align-items:flex-start;}.cart-dr{width:100vw;}}
 
 
+
+/* ─── LOADING STATES ─── */
+@keyframes spin{to{transform:rotate(360deg)}}
+.spinner{width:32px;height:32px;border:3px solid var(--border2);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 10px;}
+.loading-msg{text-align:center;padding:28px;color:var(--sub);}
+.loading-msg p{font-size:13px;margin-top:8px;}
+
 /* ─── STAR RATINGS ─── */
 .pc-stars{display:flex;align-items:center;flex-wrap:nowrap;margin-bottom:5px;line-height:1;}
 /* ─── SEARCH SYSTEM ─── */
@@ -769,6 +776,9 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
         <div class="fst" id="ck-s1">ملخص الطلب</div>
         <div id="ck-list"></div>
         <div class="os-box" id="ck-sum"></div>
+        <div style="display:flex;align-items:center;gap:6px;padding:8px 12px;background:rgba(0,212,170,.06);border:1px solid rgba(0,212,170,.15);border-radius:8px;margin-bottom:10px;font-size:11px;color:var(--accent3);">
+          🔒 <span id="price-lock-msg">الأسعار محمية ومُحسَبة من الخادم</span>
+        </div>
         <div class="ck-actions"><button class="btn-next" onclick="ckNext(2)" id="ck-n1">التالي →</button></div>
       </div>
       <div class="ck-panel" id="ckp2">
@@ -1231,7 +1241,15 @@ function addCart(id,e){
   const ex=cart.find(c=>c.key===key);
   if(ex)ex.qty++;
   else cart.push({key,id,reloadlyId:p.reloadlyId||null,cat:p.cat,name:p.name,bg:p.bg,denom:d.l,price:d.p,orig:d.o,qty:1});
-  updateCart();toast(lang==='ar'?'✅ تمت الإضافة للسلة!':'✅ Added to cart!');
+  updateCart();
+  // Hint user to log in if not authenticated (non-blocking)
+  if(!_authToken){
+    toast(lang==='ar'
+      ?'✅ تمت الإضافة — 🔐 سجّل دخولك لإتمام الشراء'
+      :'✅ Added — 🔐 Sign in to complete your purchase');
+  } else {
+    toast(lang==='ar'?'✅ تمت الإضافة للسلة!':'✅ Added to cart!');
+  }
   const el=g('cartN');el.classList.remove('bump');void el.offsetWidth;el.classList.add('bump');
 }
 function removeCart(key){cart=cart.filter(c=>c.key!==key);updateCart();}
@@ -1283,11 +1301,20 @@ function closeCart(){g('cartOv').classList.remove('open');g('cartDr').classList.
 ══════════════════════════════════════════ */
 function goCheckout(){
   if(!cart.length)return;
-  // Require login before checkout
+  // Require login before checkout — show modal immediately
   if(!_authToken){
     closeCart();
-    toast(lang==='ar'?'🔐 يرجى تسجيل الدخول أولاً':'🔐 Please sign in to continue');
-    setTimeout(function(){ openAuth('login'); }, 300);
+    openAuth('login');
+    // Show a hint inside the auth modal
+    setTimeout(function(){
+      var err=g('lerr');
+      if(err){
+        err.innerHTML=lang==='ar'
+          ?'🛒 سجّل دخولك لإتمام طلبك'
+          :'🛒 Sign in to complete your order';
+        err.classList.add('show');
+      }
+    },200);
     return;
   }
   closeCart();ckStep=1;selPM=null;
@@ -1304,10 +1331,11 @@ function buildCkSummary(){
       <div class="ci-info"><div class="ci-name">${item.name[lang]}</div><div class="ci-den">${item.denom} × ${item.qty}</div></div>
       <div class="ci-right"><div class="ci-price">${fmt(item.price*item.qty)}</div></div>
     </div>`).join('');
+  var stripeFee=sub*0.029+0.30;
   g('ck-sum').innerHTML=`
-    <div class="os-row"><span>${lang==='ar'?'المجموع الفرعي':'Subtotal'}</span><span>${fmt(orig)}</span></div>
-    <div class="os-row"><span>${lang==='ar'?'الخصم':'Discount'}</span><span style="color:var(--accent3)">-${fmt(orig-sub)}</span></div>
-    <div class="os-row"><span>${lang==='ar'?'الإجمالي':'Total'}</span><span>${fmt(sub)}</span></div>`;
+    <div class="os-row"><span>${lang==='ar'?'القيمة الاسمية':'Face Value'}</span><span>${fmt(orig)}</span></div>
+    <div class="os-row"><span>${lang==='ar'?'خصم الجملة':'Wholesale Discount'}</span><span style="color:var(--accent3)">-${fmt(orig-sub)}</span></div>
+    <div class="os-row"><span>${lang==='ar'?'الإجمالي النهائي':'Total'}</span><span style="font-size:15px;font-weight:900">${fmt(sub)}</span></div>`;
 }
 
 function buildPmGrid(){
@@ -1424,7 +1452,49 @@ async function completeOrder(){
     if(selPM==='visa-card'&&stripeInstance&&stripeCardEl){
       if(btn)btn.textContent=lang==='ar'?'\u062c\u0627\u0631\u064d \u0627\u0644\u062f\u0641\u0639...':'Processing payment...';
       var emailVal=(g('stripe-email')?g('stripe-email').value.trim():'')||recipientEmail;
-      var piRes=await fetch(RAILWAY_URL+'/api/create-payment-intent',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({amount:total,currency:'usd',email:emailVal,productId:cart[0]?cart[0].reloadlyId:null})});
+      // STEP: Fetch server-verified prices for all cart items
+      var verifiedTotal = 0;
+      var priceErrors   = [];
+      for(var pci=0;pci<cart.length;pci++){
+        var pcitem=cart[pci];
+        if(pcitem.reloadlyId){
+          try{
+            var pvRes=await fetch(RAILWAY_URL+'/api/price',{
+              method:'POST',headers:{'Content-Type':'application/json'},
+              body:JSON.stringify({productId:pcitem.reloadlyId, denomination:pcitem.price})
+            });
+            var pvData=await pvRes.json();
+            if(pvData.sell && pvData.trusted){
+              // Use server price — override frontend price
+              if(Math.abs(pvData.sell - pcitem.price) > pcitem.price * 0.15){
+                // Price changed more than 15% — notify user
+                priceErrors.push(pcitem.name[lang]+' ('+lang==='ar'?'تغير السعر':'price updated'+')');
+              }
+              pcitem.price = pvData.sell;  // Trust server price
+            }
+          }catch(pve){console.warn('Price verify failed for',pcitem.id,pve);}
+        }
+        verifiedTotal += pcitem.price * pcitem.qty;
+      }
+      verifiedTotal = parseFloat(verifiedTotal.toFixed(2));
+      if(priceErrors.length){
+        var priceMsg = lang==='ar'
+          ? '⚠️ تحديث الأسعار: ' + priceErrors.join(', ') + ' — يرجى المراجعة'
+          : '⚠️ Price update: ' + priceErrors.join(', ') + ' — please review';
+        toast(priceMsg);
+        if(btn){btn.disabled=false;btn.textContent=lang==='ar'?'تأكيد ودفع →':'Confirm & Pay →';}
+        buildCkSummary();
+        return;
+      }
+      // Use server-verified total for Stripe
+      total = verifiedTotal;
+
+      var piRes=await fetch(RAILWAY_URL+'/api/create-payment-intent',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
+        amount:total,currency:'usd',email:emailVal,
+        productId:cart[0]?cart[0].reloadlyId:null,
+        cartSize:cart.length,
+        userAgent:navigator.userAgent.slice(0,120)
+      })});
       var piData=await piRes.json();
       if(piData.error)throw new Error(piData.error);
       var stripeResult=await stripeInstance.confirmCardPayment(piData.clientSecret,{payment_method:{card:stripeCardEl,billing_details:{email:emailVal}}});
@@ -1443,10 +1513,11 @@ async function completeOrder(){
       var oitem=cart[oi];
       var oHdrs = {'Content-Type':'application/json'};
       if(typeof _authToken !== 'undefined' && _authToken) oHdrs['Authorization']='Bearer '+_authToken;
+      // NOTE: server recalculates actual price — unitPrice is only a denomination hint
       var orderRes=await fetch(RAILWAY_URL+'/orders',{method:'POST',headers:oHdrs,body:JSON.stringify({
         productId:oitem.reloadlyId,
         quantity:oitem.qty,
-        unitPrice:oitem.price,
+        unitPrice:oitem.price,  // hint only — server ignores and recalculates
         userEmail:recipientEmail,
         recipientEmail:recipientEmail,
         paymentMethod:selPM||'unknown',
@@ -1748,7 +1819,7 @@ const T={
     'dc30':'بورصات','dc31':'عملات','dc32':'مستقرة','dc33':'منصات أخرى',
     'dc40':'عالمي','dc41':'UK/Online','dc42':'تركية 1','dc43':'تركية فاخرة',
     'dc50':'أمريكا','dc51':'عالمي وخليجي','dc52':'طعام ومطاعم',
-    'sd1':'انضم كشريك','sd2':'تصفح الكتالوج','sd3':'تسجيل الدخول',
+    'sd1':'انضم كشريك','sd2':'تصفح الكتالوج','sd3':'تسجيل الدخول','price-lock-msg':'الأسعار محمية ومُحسَبة من الخادم',
   },
   en:{
     'topbar-txt':'🎉 Extra 2% off with Crypto — code: CRYPTO2 &nbsp;|&nbsp; Instant Delivery ⚡',
@@ -1803,7 +1874,7 @@ const T={
     'dc30':'Exchanges','dc31':'Coins','dc32':'Stablecoins','dc33':'More Platforms',
     'dc40':'International','dc41':'UK/Online','dc42':'Turkish 1','dc43':'Turkish Luxury',
     'dc50':'USA','dc51':'Global & Gulf','dc52':'Food & Dining',
-    'sd1':'Join as Partner','sd2':'Browse Catalog','sd3':'Sign In',
+    'sd1':'Join as Partner','sd2':'Browse Catalog','sd3':'Sign In','price-lock-msg':'Prices verified & calculated server-side',
   }
 };
 
@@ -2233,6 +2304,25 @@ function syncAvail(){
 /* ── DYNAMIC PRICING ENGINE (EUR/GBP aware) ─── */
 var SAFE_FX={USD:1,EUR:1.12,GBP:1.32,CAD:0.76,AUD:0.68,NOK:0.097,SEK:0.096,TRY:0.031,AED:0.272,SAR:0.267,KWD:3.27,EGP:0.021};
 
+/* ── LIVE FX RATES (from backend, with 3% buffer built-in) ─── */
+function syncFXRates(){
+  fetch(RAILWAY_URL+'/api/fx-rates')
+    .then(function(r){return r.json();})
+    .then(function(data){
+      if(data&&data.rates&&typeof data.rates==='object'){
+        Object.keys(data.rates).forEach(function(c){
+          if(RATES[c]!==undefined) RATES[c]=data.rates[c];
+        });
+        console.log('FX rates updated:',new Date(data.updatedAt).toLocaleString());
+        renderProducts(); updateCart();
+      }
+    })
+    .catch(function(e){console.warn('FX rates unavailable, using fallback:',e.message);});
+}
+// Sync FX on load + every 30 minutes
+setTimeout(syncFXRates,2000);
+setInterval(syncFXRates,30*60*1000);
+
 function syncLivePrices(){
   fetch('https://bridgecards-api.onrender.com/api/products')
     .then(function(r){return r.json();})
@@ -2249,9 +2339,9 @@ function syncLivePrices(){
         var rate=(SAFE_FX[cur]||1.15)*(cur!=='USD'?1.03:1);
         lp.d.forEach(function(d){
           var cost=d.o*(1-disc/100)*rate;
-          var wp=cost*1.10;
-          var sf=wp*0.029+0.30;
-          var fp=wp+sf;
+          var wp=cost*1.12;  // 12% margin (matches server MIN_MARGIN)
+          // Correct Stripe formula: gross = (desiredNet + 0.30) / (1 - 0.029)
+          var fp=(wp+0.30)/(1-0.029);
           if(fp<cost+0.60)fp=cost+0.60;
           d.p=parseFloat(fp.toFixed(2));
         });
@@ -2275,6 +2365,38 @@ buildPmGrid();
 updateNavUser();
 syncLivePrices();
 syncAvail();
+
+/* ── PERIODIC CART PRICE REFRESH (every 15 min) ─── */
+function refreshCartPrices(){
+  if(!cart.length) return;
+  var changed=false;
+  var fetches=cart.filter(function(i){return i.reloadlyId;}).map(function(item){
+    return fetch(RAILWAY_URL+'/api/price',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({productId:item.reloadlyId,denomination:item.price})})
+    .then(function(r){return r.json();})
+    .then(function(d){
+      if(d.sell&&d.trusted&&Math.abs(d.sell-item.price)>0.01){
+        item.price=d.sell; changed=true;
+      }
+    }).catch(function(){});
+  });
+  Promise.all(fetches).then(function(){if(changed){updateCart();buildCkSummary();}});
+}
+setInterval(refreshCartPrices, 15*60*1000);
+
+/* ── MAINTENANCE MODE CHECK ─── */
+fetch(RAILWAY_URL+'/api/settings')
+  .then(function(r){return r.json();})
+  .then(function(s){
+    if(s.maintenanceMode){
+      document.body.innerHTML='<div style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:#07080f;color:#eef0ff;text-align:center;padding:40px;">'
+        +'<div><div style="font-size:64px;margin-bottom:24px;">🔧</div>'
+        +'<h1 style="font-size:24px;font-weight:900;margin-bottom:12px;">صيانة مؤقتة</h1>'
+        +'<p style="color:#9294b8;font-size:15px;">الموقع في وضع الصيانة. يرجى المحاولة لاحقاً.</p>'
+        +'<p style="color:#3d6bff;font-size:13px;margin-top:8px;">Temporary maintenance — please check back shortly.</p></div></div>';
+    }
+  })
+  .catch(function(){});
 
 </script>
 </body>
