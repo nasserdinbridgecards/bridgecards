@@ -189,7 +189,22 @@ nav{position:sticky;top:0;z-index:150;background:rgba(7,8,15,.92);backdrop-filte
 .fsub{width:100%;padding:12px;border:none;border-radius:9px;background:linear-gradient(135deg,var(--accent),#6b4eff);color:#fff;font-size:14px;font-weight:800;font-family:inherit;cursor:pointer;transition:all .25s;box-shadow:0 6px 20px rgba(61,107,255,.3);}
 .fsub:hover{transform:translateY(-1px);}
 
-/* FOOTER — see new CSS above */
+footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid var(--border);padding:52px 40px 28px;}
+.footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.8fr 1fr 1fr 1.1fr;gap:48px;margin-bottom:40px;}
+.footer-brand-desc{font-size:12px;color:var(--sub);line-height:1.8;margin-top:12px;max-width:280px;}
+.footer-col h4{font-size:10px;font-weight:800;color:var(--sub);text-transform:uppercase;letter-spacing:1.4px;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--border);}
+.footer-col a{display:block;font-size:13px;color:var(--sub);text-decoration:none;margin-bottom:9px;transition:color .2s;cursor:pointer;}
+.footer-col a:hover{color:var(--text);}
+.fci{display:flex;align-items:flex-start;gap:9px;font-size:12px;color:var(--sub);margin-bottom:10px;line-height:1.5;}
+.fci a{color:var(--accent3);text-decoration:none;font-size:12px;}
+.fci a:hover{color:var(--text);}
+.footer-bottom{max-width:1200px;margin:0 auto;border-top:1px solid var(--border);padding-top:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.footer-bottom p{font-size:11px;color:var(--sub);}
+.fbl{display:flex;gap:16px;flex-wrap:wrap;}
+.fbl a{font-size:11px;color:var(--sub);text-decoration:none;cursor:pointer;transition:color .2s;}
+.fbl a:hover{color:var(--accent3);}
+@media(max-width:960px){.footer-grid{grid-template-columns:1fr 1fr;gap:32px;}}
+@media(max-width:480px){.footer-grid{grid-template-columns:1fr 1fr;gap:18px;}.footer-brand-desc{display:none;}}
 
 /* CART DRAWER */
 .cart-ov{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:400;opacity:0;pointer-events:none;transition:opacity .3s;}
@@ -292,8 +307,6 @@ nav{position:sticky;top:0;z-index:150;background:rgba(7,8,15,.92);backdrop-filte
 @media(max-width:960px){.tiers{grid-template-columns:1fr;}.steps{grid-template-columns:1fr 1fr;}.contact{grid-template-columns:1fr;}.stats{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:640px){nav{padding:0 12px;gap:8px;}.nav-cats{display:none;}.hero{padding:48px 16px 32px;}.sec{padding:0 14px;}.steps{grid-template-columns:1fr;}.frow{grid-template-columns:1fr;}footer{flex-direction:column;align-items:flex-start;}.cart-dr{width:100vw;}}
 
-
-
 /* ─── LOADING STATES ─── */
 @keyframes spin{to{transform:rotate(360deg)}}
 .spinner{width:32px;height:32px;border:3px solid var(--border2);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 10px;}
@@ -380,7 +393,7 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
 </head>
 <body>
 
-<div class="topbar" id="topbar-txt">🎉 خصم 2% عند الدفع بالكريبتو — كود: CRYPTO2 &nbsp;|&nbsp; تسليم فوري ⚡</div>
+<div class="topbar" id="topbar-txt">🎉 خصم 2% عند الدفع بالكريبتو — كود: CRYPTO2  |  تسليم فوري ⚡</div>
 
 <nav>
   <a href="#" class="logo">
@@ -563,7 +576,6 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-badge" id="hb">🤝 برنامج شركاء الجملة العالمي</div>
   <h1 id="hh">اشترِ بطاقات الهدايا<br><em>بأسعار الجملة الحصرية</em></h1>
@@ -574,7 +586,6 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
   </div>
 </section>
 
-<!-- STATS -->
 <div class="stats">
   <div class="stat"><span class="stat-n">+18,000</span><div class="stat-l" id="sl1">شريك نشط</div></div>
   <div class="stat"><span class="stat-n">87+</span><div class="stat-l" id="sl2">منتج رقمي</div></div>
@@ -582,12 +593,10 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
   <div class="stat"><span class="stat-n">24/7</span><div class="stat-l" id="sl4">تسليم فوري</div></div>
 </div>
 
-<!-- PRODUCTS -->
 <div class="sec" id="sec-products">
   <div class="sec-hd">
     <div><div class="sec-title" id="st1">كتالوج <em>المنتجات</em></div><div class="sec-sub" id="st2">اختر الفئة والسعر المناسب</div></div>
   </div>
-  <!-- SEARCH -->
   <div class="search-wrap">
     <input class="search-input" id="searchInput"
       placeholder="🔍 ابحث عن بطاقة... (Steam, Amazon, PSN, كريبتو...)"
@@ -595,7 +604,6 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
       autocomplete="off" spellcheck="false">
     <button class="search-clear" id="searchClear" onclick="clearSearch()">✕</button>
   </div>
-  <!-- SORT BAR -->
   <div class="sort-bar">
     <span class="sort-lbl" id="sort-lbl">ترتيب:</span>
     <button class="sort-btn on" id="s-def" onclick="setSort('default',this)">الافتراضي</button>
@@ -619,7 +627,6 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
   <div class="pgrid" id="pgrid"></div>
 </div>
 
-<!-- BENEFITS -->
 <div class="sec">
   <div class="sec-hd"><div><div class="sec-title" id="bent">لماذا <em>BridgeCards؟</em></div></div></div>
   <div class="ben-grid">
@@ -632,7 +639,6 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
   </div>
 </div>
 
-<!-- TIERS -->
 <div class="sec">
   <div class="sec-hd"><div><div class="sec-title" id="tt">مستويات <em>الشراكة</em></div></div></div>
   <div class="tiers">
@@ -655,7 +661,6 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
   </div>
 </div>
 
-<!-- STEPS -->
 <div class="sec">
   <div class="sec-hd"><div><div class="sec-title" id="howt">كيف <em>يعمل؟</em></div></div></div>
   <div class="steps">
@@ -666,14 +671,13 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
   </div>
 </div>
 
-<!-- CONTACT -->
 <div class="sec">
   <div class="contact">
     <div class="ci">
       <h2 id="cht">انضم للبرنامج<br><span style="color:var(--accent)">اليوم</span></h2>
       <p id="chp">أرسل طلب انضمام وسيتواصل معك فريقنا خلال ساعات.</p>
       <ul class="cpts">
-        <li class="cpt"><span>📧</span><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a8dbddd8d8c7dadce8cadac1cccfcdcbc9daccdb86c7dacf">[email&#160;protected]</a></span></li>
+        <li class="cpt"><span>📧</span><span>support@bridgecards.org</span></li>
         <li class="cpt"><span>💬</span><span>Telegram: @BridgeCards</span></li>
         <li class="cpt"><span>🕐</span><span id="cp1">رد خلال 24 ساعة</span></li>
         <li class="cpt"><span>🌍</span><span id="cp2">نخدم أكثر من 80 دولة</span></li>
@@ -748,7 +752,6 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
   </div>
 </footer>
 
-<!-- CART DRAWER -->
 <div class="cart-ov" id="cartOv" onclick="closeCart()"></div>
 <div class="cart-dr" id="cartDr">
   <div class="cart-hd"><h3 id="cart-title">🛒 سلة المشتريات</h3><button class="close-x" onclick="closeCart()">✕</button></div>
@@ -761,7 +764,6 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
   </div>
 </div>
 
-<!-- CHECKOUT MODAL -->
 <div class="modal-ov" id="ckModal">
   <div class="modal" style="max-width:640px;">
     <div class="mhd"><h2 id="ck-title">إتمام الشراء</h2><button class="close-x" onclick="closeM('ckModal')">✕</button></div>
@@ -810,7 +812,6 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
   </div>
 </div>
 
-<!-- AUTH MODAL -->
 <div class="modal-ov" id="authModal">
   <div class="modal" style="max-width:390px;">
     <div class="mhd"><h2 id="auth-t">الحساب</h2><button class="close-x" onclick="closeM('authModal')">✕</button></div>
@@ -854,7 +855,6 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
   </div>
 </div>
 
-<!-- ══ MODAL: Product Detail ══ -->
 <div class="modal-ov" id="pdModal" onclick="if(event.target===this)closeM('pdModal')">
   <div class="modal" style="max-width:600px;">
     <div class="mhd" style="position:sticky;top:0;background:var(--surface);z-index:2;">
@@ -865,114 +865,15 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
   </div>
 </div>
 
-<!-- ══ MODAL: الشروط والأحكام ══ -->
-<div class="modal-ov" id="termsModal" onclick="if(event.target===this)closeM('termsModal')">
-  <div class="modal" style="max-width:680px;">
-    <div class="mhd" style="position:sticky;top:0;background:var(--surface);z-index:2;">
-      <h2>📄 الشروط والأحكام</h2>
-      <button class="close-x" onclick="closeM('termsModal')">✕</button>
-    </div>
-    <div class="mbody" style="font-size:13px;color:var(--sub);line-height:1.85;">
-      <div style="background:rgba(61,107,255,.07);border:1px solid rgba(61,107,255,.2);border-radius:10px;padding:13px 16px;margin-bottom:22px;">
-        <p style="color:var(--accent);font-weight:700;">BridgeCards — Zetony LLC شركة أمريكية مسجلة في الولايات المتحدة. نخضع للقانون الفيدرالي الأمريكي.</p>
-      </div>
-      <h3 style="color:var(--text);font-size:13px;font-weight:800;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--border);">1. طبيعة المنتجات</h3>
-      <p style="margin-bottom:18px;">جميع المنتجات عبارة عن <strong style="color:var(--text);">رموز رقمية (Digital Codes)</strong> لبطاقات الهدايا ورصيد الألعاب. تُسلَّم فورياً إلكترونياً فور إتمام الدفع. لا يوجد شحن مادي.</p>
-      <h3 style="color:var(--text);font-size:13px;font-weight:800;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--border);">2. شروط الاستخدام</h3>
-      <ul style="padding-inline-start:18px;margin-bottom:18px;">
-        <li style="margin-bottom:6px;">يجب أن يكون عمر المستخدم 18 سنة أو أكثر.</li>
-        <li style="margin-bottom:6px;">يُحظر استخدام الموقع لأغراض احتيالية أو غير مشروعة.</li>
-        <li style="margin-bottom:6px;">يُحظر إعادة بيع الأكواد على منصات غير مرخصة.</li>
-        <li>يلتزم المستخدم بسياسات الشركة المصدِّرة (Microsoft, Sony, Amazon…).</li>
-      </ul>
-      <h3 style="color:var(--text);font-size:13px;font-weight:800;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--border);">3. التسعير والدفع</h3>
-      <p style="margin-bottom:18px;">الأسعار ديناميكية بناءً على تكلفة المورد. <strong style="color:var(--text);">نضمن تسليمك بالسعر المؤكد وقت إتمام الدفع.</strong> نقبل Visa/Mastercard عبر Stripe، وكريبتو مع خصم 2%، وطرق دفع محلية متعددة.</p>
-      <h3 style="color:var(--text);font-size:13px;font-weight:800;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--border);">4. الحماية ومكافحة الاحتيال</h3>
-      <p style="margin-bottom:18px;">نحتفظ بالحق في إيقاف أي طلب مشبوه وطلب التحقق من الهوية (KYC). الطلبات المحجوبة تُسترد تلقائياً.</p>
-      <h3 style="color:var(--text);font-size:13px;font-weight:800;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--border);">5. القانون المطبق</h3>
-      <p style="margin-bottom:18px;">تخضع هذه الشروط للقانون الفيدرالي الأمريكي وقوانين الولايات المتحدة. أي نزاع يُحسم وفق قواعد التحكيم الأمريكية.</p>
-      <div style="background:var(--bg2);border-radius:9px;padding:13px;text-align:center;font-size:11px;">آخر تحديث: يناير 2026 · <a href="mailto:support@bridgecards.org" style="color:var(--accent3);">support@bridgecards.org</a></div>
-    </div>
-  </div>
-</div>
-
-<!-- ══ MODAL: سياسة الاسترجاع ══ -->
-<div class="modal-ov" id="refundModal" onclick="if(event.target===this)closeM('refundModal')">
-  <div class="modal" style="max-width:680px;">
-    <div class="mhd" style="position:sticky;top:0;background:var(--surface);z-index:2;">
-      <h2>↩️ سياسة الاسترجاع</h2>
-      <button class="close-x" onclick="closeM('refundModal')">✕</button>
-    </div>
-    <div class="mbody" style="font-size:13px;color:var(--sub);line-height:1.85;">
-      <div style="background:rgba(255,79,123,.08);border:1px solid rgba(255,79,123,.25);border-radius:10px;padding:13px 16px;margin-bottom:22px;">
-        <p style="color:var(--accent2);font-weight:700;">⚠️ بسبب الطبيعة الرقمية للمنتجات، لا يمكن الاسترجاع بعد إصدار الكود إلا في الحالات الموضحة.</p>
-      </div>
-      <h3 style="color:var(--accent3);font-size:13px;font-weight:800;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--border);">✅ حالات يحق فيها الاسترجاع</h3>
-      <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:20px;">
-        <div style="background:rgba(0,212,170,.07);border:1px solid rgba(0,212,170,.18);border-radius:9px;padding:10px 14px;">الكود <strong style="color:var(--text);">تالف أو لا يعمل</strong> عند الاستخدام الأول.</div>
-        <div style="background:rgba(0,212,170,.07);border:1px solid rgba(0,212,170,.18);border-radius:9px;padding:10px 14px;">الكود <strong style="color:var(--text);">مستخدم مسبقاً</strong> قبل التسليم من المصدر.</div>
-        <div style="background:rgba(0,212,170,.07);border:1px solid rgba(0,212,170,.18);border-radius:9px;padding:10px 14px;"><strong style="color:var(--text);">تسليم منتج مختلف</strong> عما طُلب.</div>
-        <div style="background:rgba(0,212,170,.07);border:1px solid rgba(0,212,170,.18);border-radius:9px;padding:10px 14px;"><strong style="color:var(--text);">فشل تقني من جانبنا</strong> أدى إلى عدم التسليم.</div>
-      </div>
-      <h3 style="color:var(--accent2);font-size:13px;font-weight:800;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--border);">❌ حالات لا يُقبل فيها الاسترجاع</h3>
-      <ul style="padding-inline-start:18px;margin-bottom:20px;">
-        <li style="margin-bottom:6px;">تغيير الرأي بعد الشراء.</li>
-        <li style="margin-bottom:6px;">إدخال الكود في المنطقة الجغرافية الخاطئة.</li>
-        <li style="margin-bottom:6px;">انتهاء صلاحية الكود.</li>
-        <li style="margin-bottom:6px;">مشاكل ناتجة عن سياسات الشركة المصدِّرة.</li>
-        <li>طلبات مقدَّمة بعد 48 ساعة من الشراء.</li>
-      </ul>
-      <h3 style="color:var(--text);font-size:13px;font-weight:800;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--border);">📋 خطوات تقديم طلب الاسترجاع</h3>
-      <ol style="padding-inline-start:18px;margin-bottom:20px;">
-        <li style="margin-bottom:6px;">أرسل إلى: <a href="mailto:support@bridgecards.org" style="color:var(--accent3);">support@bridgecards.org</a></li>
-        <li style="margin-bottom:6px;">اذكر رقم الطلب + البريد المستخدم.</li>
-        <li style="margin-bottom:6px;">أرفق لقطة شاشة تُثبت المشكلة.</li>
-        <li style="margin-bottom:6px;">الرد خلال <strong style="color:var(--text);">24 ساعة عمل</strong>.</li>
-        <li>عند القبول: استبدال فوري أو استرداد خلال <strong style="color:var(--text);">3–5 أيام عمل</strong>.</li>
-      </ol>
-      <div style="background:var(--bg2);border-radius:9px;padding:13px;text-align:center;font-size:11px;">للدعم الفوري: <a href="https://t.me/bridgecards" style="color:var(--accent3);" target="_blank">Telegram @BridgeCards</a></div>
-    </div>
-  </div>
-</div>
-
-<!-- ══ MODAL: سياسة الخصوصية ══ -->
-<div class="modal-ov" id="privacyModal" onclick="if(event.target===this)closeM('privacyModal')">
-  <div class="modal" style="max-width:680px;">
-    <div class="mhd" style="position:sticky;top:0;background:var(--surface);z-index:2;">
-      <h2>🔒 سياسة الخصوصية</h2>
-      <button class="close-x" onclick="closeM('privacyModal')">✕</button>
-    </div>
-    <div class="mbody" style="font-size:13px;color:var(--sub);line-height:1.85;">
-      <div style="background:rgba(0,212,170,.07);border:1px solid rgba(0,212,170,.2);border-radius:10px;padding:13px 16px;margin-bottom:22px;">
-        <p style="color:var(--accent3);font-weight:700;">✅ لا نبيع بياناتك ولا نشاركها لأي طرف إعلاني — بدون cookies إعلانية.</p>
-      </div>
-      <h3 style="color:var(--text);font-size:13px;font-weight:800;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--border);">1. ما المعلومات التي نجمعها؟</h3>
-      <ul style="padding-inline-start:18px;margin-bottom:18px;">
-        <li style="margin-bottom:6px;"><strong style="color:var(--text);">بيانات الحساب:</strong> الاسم، البريد، كلمة المرور (مُشفَّرة bcrypt).</li>
-        <li style="margin-bottom:6px;"><strong style="color:var(--text);">بيانات المعاملات:</strong> سجل الطلبات (لا نحفظ أرقام البطاقات — Stripe يتولى ذلك).</li>
-        <li style="margin-bottom:6px;"><strong style="color:var(--text);">بيانات تقنية:</strong> IP، المتصفح — للأمان ومنع الاحتيال فقط.</li>
-        <li><strong style="color:var(--text);">لا cookies إعلانية</strong> ولا شبكات تتبع.</li>
-      </ul>
-      <h3 style="color:var(--text);font-size:13px;font-weight:800;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--border);">2. مع من نشارك بياناتك؟</h3>
-      <ul style="padding-inline-start:18px;margin-bottom:18px;">
-        <li style="margin-bottom:6px;"><strong style="color:var(--text);">Stripe Inc.</strong> — معالج الدفع الآمن (PCI-DSS Level 1).</li>
-        <li><strong style="color:var(--text);">Reloadly</strong> — مزود بطاقات الهدايا، لتنفيذ الطلبات فقط.</li>
-      </ul>
-      <h3 style="color:var(--text);font-size:13px;font-weight:800;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--border);">3. الأمان وحقوقك</h3>
-      <ul style="padding-inline-start:18px;margin-bottom:18px;">
-        <li style="margin-bottom:6px;">تشفير SSL/TLS 256-bit — كلمات المرور bcrypt.</li>
-        <li style="margin-bottom:6px;"><strong style="color:var(--text);">حق الوصول:</strong> الاطلاع على بياناتك.</li>
-        <li style="margin-bottom:6px;"><strong style="color:var(--text);">حق الحذف:</strong> حذف حسابك وبياناتك نهائياً.</li>
-        <li><strong style="color:var(--text);">حق الاعتراض:</strong> إيقاف أي استخدام لبياناتك.</li>
-      </ul>
-      <div style="background:var(--bg2);border-radius:9px;padding:13px;text-align:center;font-size:11px;">آخر تحديث: يناير 2026 · <a href="mailto:support@bridgecards.org" style="color:var(--accent3);">support@bridgecards.org</a></div>
-    </div>
-  </div>
-</div>
-
 <div class="toast" id="toast"></div>
 
 <script>
+/* ══════════════════════════════════════════
+   الروابط المحدثة (STAGING) ✅
+══════════════════════════════════════════ */
+const RAILWAY_URL = 'https://bridgecards-api-staging.onrender.com';
+var RAILWAY_URL_AV = 'https://bridgecards-api-staging.onrender.com';
+
 /* ══════════════════════════════════════════
    SAFE DOM HELPER
 ══════════════════════════════════════════ */
@@ -1101,7 +1002,7 @@ const P=[
   {id:'apple-store',cat:'electronics',name:{ar:'Apple Store Card',en:'Apple Store Card'},reg:{ar:'🇺🇸 USA',en:'🇺🇸 USA'},bg:'linear-gradient(145deg,#1c1c1e,#3a3a3c)',d:[{l:'$25',p:26.62,o:25},{l:'$50',p:52.93,o:50},{l:'$100',p:105.57,o:100},{l:'$200',p:210.83,o:200}]},
   {id:'currys',cat:'electronics',name:{ar:'Currys Gift Card',en:'Currys Gift Card'},reg:{ar:'🇬🇧 UK',en:'🇬🇧 UK'},bg:'linear-gradient(145deg,#5c2d91,#7b3fb5)',d:[{l:'£10',p:10.94,o:10},{l:'£25',p:26.9,o:25},{l:'£50',p:53.5,o:50}]},
   // FOOD
-  {id:'starbucks',rating:4.7,reviews:654,reloadlyId:18287,cat:'food',name:{ar:'Starbucks Card',en:'Starbucks Card'},reg:{ar:'🌍 عالمي',en:'🌍 Global'},bg:'linear-gradient(145deg,#00704a,#008f5d)',d:[{l:'$10',p:11.28,o:10},{l:'$15',p:16.77,o:15},{l:'$25',p:27.75,o:25},{l:'$50',p:55.2,o:50}]},
+{id:'starbucks',rating:4.7,reviews:654,reloadlyId:18287,cat:'food',name:{ar:'Starbucks Card',en:'Starbucks Card'},reg:{ar:'🌍 عالمي',en:'🌍 Global'},bg:'linear-gradient(145deg,#00704a,#008f5d)',d:[{l:'$10',p:11.28,o:10},{l:'$15',p:16.77,o:15},{l:'$25',p:27.75,o:25},{l:'$50',p:55.2,o:50}]},
   {id:'mcdonalds',cat:'food',name:{ar:"McDonald's Card",en:"McDonald's Card"},reg:{ar:'🇺🇸 USA',en:'🇺🇸 USA'},bg:'linear-gradient(145deg,#da291c,#ffc72c)',d:[{l:'$10',p:10.94,o:10},{l:'$20',p:21.58,o:20},{l:'$50',p:53.5,o:50}]},
   {id:'ubereats',cat:'food',name:{ar:'Uber Eats Card',en:'Uber Eats Card'},reg:{ar:'🌍 عالمي',en:'🌍 Global'},bg:'linear-gradient(145deg,#000,#06c167)',d:[{l:'$15',p:16.26,o:15},{l:'$25',p:26.9,o:25},{l:'$50',p:53.5,o:50}]},
   {id:'deliveroo',cat:'food',name:{ar:'Deliveroo Card',en:'Deliveroo Card'},reg:{ar:'🇬🇧 UK/Europe',en:'🇬🇧 UK/Europe'},bg:'linear-gradient(145deg,#00948a,#00ccbc)',d:[{l:'£10',p:10.94,o:10},{l:'£25',p:26.9,o:25},{l:'£50',p:53.5,o:50}]},
